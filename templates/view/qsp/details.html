@@ -1,0 +1,62 @@
+
+<div id="{$_name}" class="xepan-grid clearfix atk-table atk-table-zebra {$class}">{Pannel}
+  <header class="main-box-header clearfix atk-actions  {$class} ">
+    <div style="100%" class="filter-block">
+      <div class="pull-right">{$grid_buttons} </div>
+    </div>
+  </header>{/Pannel}
+  <div class="main-box-body clearfix table-responsive">
+    <table style="width:100%" class="table user-list table-hover">{header}
+      <thead>{cols}{col}
+        <tr>
+          <th></th>
+          <th class="text-center">Sno</th>
+          <th class="text-left">Particular</th>
+          <th>Rate</th>
+          <th>Qty</th>
+          <th>Shipping</th>
+          <th>Amount<small>
+              <div class="text-muted"> excluding tax</div></small></th>
+          <th>Tax %</th>
+          <th>Tax</th>
+          <th class="discount_header">Discount</th>
+          <th>Amount<small>
+              <div class="text-muted">including tax</div></small></th>
+        </tr>{/}{/}
+      </thead>{/}
+      {$subheader}
+      <tbody>{rows}{row}
+        <tr data-id="{$id}" class="{$odd_even}">{cols}
+          <td>{$edit}{$delete}<br/>{$export_design}<br/>{$export_attachments}</td>
+          <td class="text-center">{sno}01{/}</td>
+          <td class="text-left">{name}Item Name{/}<small>
+              <div>HSN : {$hsn_no}</div>
+              <div>{$extra_info}</div>
+              <div>{$narration}</div></small></td>
+          <td>{price}price_here{/} &nbsp;/{$qty_unit}</td>
+          <td>{quantity}{/}</td>
+          <td>{$shipping_charge}<br/>{$shipping_duration}</td>
+          <td class="sum-excluding-tax-amount">{amount_excluding_tax}{/}</td>
+          <td>{tax_percentage}{/}</td>
+          <td>{tax_amount}tax_amount{/}</td>
+          <td class="item-discount">{$discount}</td>
+          <td class="sum-amount">{total_amount}total_amount{/}</td>{/}
+        </tr>{/}{/}
+        {not_found}
+        <div class="row">
+          <div role="alert" class="col-md-12 text-center alert alert-warning"><span class="icon-attention fa fa-exclamation-triangle"> &nbsp;{$not_found_message}</span></div>
+        </div>{/}
+        {totals}
+        <tfoot>
+          <tr class="totals">
+            {cols}{col}
+            <td {$tdparam}>
+            {$content}
+            </td>
+            {/}{/}
+          </tr>
+        </tfoot>{/}
+      </tbody>{$Paginator}
+    </table>
+  </div>
+</div>

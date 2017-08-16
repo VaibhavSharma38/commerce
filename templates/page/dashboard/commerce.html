@@ -1,0 +1,51 @@
+
+<div class="row">
+  <div class="col-md-3">
+    <div class="main-box infographic-box colored emerald-bg"><i class="fa fa-shopping-cart"></i><span class="headline">Todays Orders</span><span class="value">{$todays_orders}</span></div>
+  </div>
+  <div class="col-md-3">
+    <div class="main-box infographic-box colored green-bg"><i class="fa fa-shopping-cart"></i><span class="headline">Todays invoices</span><span class="value">{$todays_invoices}</span></div>
+  </div>
+  <div class="col-md-3">
+    <div class="main-box infographic-box colored purple-bg"><i class="fa fa-money"></i><span class="headline">Todays Payment </span><span class="value">{$todays_payments}</span></div>
+  </div>
+  <div class="col-md-3">  
+    <div class="main-box infographic-box colored red-bg"><i class="fa fa-money"></i><span class="headline">Remaining Payment </span><span class="value">{$remaining_payments}</span></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">{$order_grid} </div>
+  <div class="col-md-6">{$invoice_grid}</div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      
+    {$favourite_item}
+  </div>
+  <div class="col-md-6">
+    <div class="main-box">
+      <div class="clearfix">
+        <div class="infographic-box merged merged-top pull-left"><i class="fa fa-user purple-bg"></i><span class="value purple">{$customers}</span><span class="headline">New Customers</span></div>
+        <div class="infographic-box merged merged-top merged-right pull-left"><i class="fa fa-money green-bg"></i><span class="value green">{$new_orders}</span><span class="headline">Orders</span></div>
+      </div>
+      <div class="clearfix">
+        <div class="infographic-box merged pull-left"><i class="fa fa-eye yellow-bg"></i><span class="value yellow">{$revenue}</span><span class="headline">Revenue</span></div>
+        <div class="infographic-box merged merged-right pull-left"><i class="fa fa-globe red-bg"></i><span class="value red">{$countries}</span><span class="headline">Countries</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Today Sale This Month (Qty vs day/week)</h2>
+      <h2>Top 5 Product based on day/week/month/year</h2>
+      <h2>Conversion Rate</h2>
+      <h2>Number of Product Sale day/week/month/year</h2>
+      <h2>Number of Customer day/week/month/year</h2>
+      <h2>Number of Order day/week/month/year</h2>
+      <h2>Top 5 Invoice that are not paid day/week/month/year</h2>
+      <h2>Order vs Invoice Graph</h2>
+      <h2>Total Cancelled Order</h2>
+    </div>
+    <div class="col-md-6">{$Content}</div>
+  </div>
+</div>

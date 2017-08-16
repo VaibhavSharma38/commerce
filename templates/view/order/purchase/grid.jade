@@ -1,0 +1,72 @@
+.xepan-grid.main-box.clearfix.atk-table.atk-table-zebra.atk-table-bordered(id="{$_name}" class="{$class}")
+    {Pannel}
+    header.main-box-header.clearfix.atk-actions(class=" {$class} ")
+        div.filter-block( style="100%")
+            .pull-right {$grid_buttons} 
+            .form-group.pull-right.xepan-filter-form
+                span(class="form-control pull-left")|{$quick_search}
+                    i(class="fa fa-search search-icon")
+    {/Pannel}
+    .main-box-body.clearfix.table-responsive
+        table.table.user-list.table-hover.footable.toggle-circle-filled(style="width:100%")
+            {header}
+            thead.xepan-hover-hand
+                {cols}{col}
+                th
+                th(id="{$document_no_number_sortid}")
+                    span Name 
+                    span(style= "cursor:pointer; cursor: hand; max-width:600px;"){$document_no_number_sort}
+                th(data-hide="phone")
+                    span Created
+                th
+                    span Amount
+                th
+                th  
+                {/}{/}
+            {/}
+            {$subheader}
+
+            tbody
+                {rows}{row}
+                tr(class="{$odd_even}" data-id="{$id}")
+                    {cols}
+                    td
+                        {$selected}
+                    td
+                        {avatar}
+                        img(src='img/samples/scarlet-159.png', alt='')
+                        {/}
+                        a.user-link.do-view-frame(href='#',data-id="{$id}" data-purchaseinvoice-id="{$document_id}")
+                            {$document_no}
+                        a.do-view-supplier-frame(href='#',data-id="{$id}" data-contact-id="{$contact_id}")
+                            span.user-subhead{$contact}
+                    td
+                        | {$created_at}
+                    td
+                        | {$net_amount_self_currency}
+                        div.user-subhead{$net_amount_client_currency}
+                    td
+                        | {$action}
+                    td(style="width: 15%;")
+                        {$edit}
+                        {$delete}
+                        {$attachment_icon}
+                    
+                    {/}
+                {/}{/}
+                {not_found}
+                div.row
+                    .col-md-12.text-center.alert.alert-warning(role="alert")
+                        span.icon-attention.fa.fa-exclamation-triangle  &nbsp;{$not_found_message}
+                {/}
+
+            {totals}
+            tfoot
+                tr(class="totals")
+                    {cols}{col}
+                    <td {$tdparam}>
+                    {$content}
+                    </td>
+                    {/}{/}
+            {/}
+        {$Paginator}

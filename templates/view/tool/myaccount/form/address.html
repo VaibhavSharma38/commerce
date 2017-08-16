@@ -1,0 +1,206 @@
+<style>
+#tab-address select {
+    border-left: 4px solid #3F7ECB !important;
+    font-size: 0.8125em;
+    color: #000;
+    padding: 8px;
+    outline: none;
+    margin: 10px 0;
+    width: 400px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #999595;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(153, 149, 149);
+}
+#tab-address input {
+    border-left: 4px solid #3F7ECB !important;
+    font-size: 0.8125em;
+    color: #999;
+    padding: 8px;
+    outline: none;
+    margin: 10px 0;
+    width: 400px;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #999595;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(153, 149, 149);
+}
+#tab-address textarea {
+    padding: 10px 15px;
+    width: 60%;
+    color: #000;
+    font-size: 0.8125em;
+    border: 1px solid #999595 !important;
+    background: #fff;
+    outline: none;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+  overflow: auto;
+    vertical-align: top;
+    border-left: 4px solid #57bdc9 !important;
+  font-size: 0.8125em;
+  color: #999;
+  padding: 8px;
+  outline: none;
+  margin: 10px 0;
+  width: 95%;
+  font-family: 'Open Sans', sans-serif;
+  border: 1px; 
+}
+
+#tab-address button:hover {
+    background: #57bdc9;
+    border-bottom: 4px solid #000;
+}
+#tab-address button{
+    background: #555;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 8px 20px;
+    border-radius: 5px;
+    border-bottom: 4px solid #57bdc9;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    float: left;
+}
+</style>
+
+
+<div class="row member-account-member-address-form">
+  <div class="col-md-12 col-lg-12 form-horizontal"> 
+    <div class="form-group"> 
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          {$address}
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <strong> country </strong>           
+          </br>
+          {$country_id}
+        </div>
+        <div class="col-md-6 col-lg-6">           
+          <strong> State </strong>           
+          </br>
+          {$state_id}
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 col-lg-6">           
+          {$city}
+        </div>
+        <div class="col-md-6 col-lg-6">          	
+          {$pin_code}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-left:312px; padding-bottom:10px;" class="row form-group">{$same_as_billing_address}</div>
+<div class="row member-account-member-billing-shipping-address-form">
+  <div class="col-md-6 col-lg-6">
+    <div class="form-group">
+      <div class="row">  <strong>Billing Address:</strong></div>
+      <div class="row">
+          	
+        {$billing_address}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row"> <strong>Billing Country:</strong></div>
+      <div class="row">
+         
+        {$billing_country_id}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row"> <strong>Billing State:</strong></div>
+      <div class="row">
+         
+        {$billing_state_id}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row"> <strong>Billing City:</strong></div>
+      <div class="row">
+         
+        {$billing_city}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row"> <strong>Billing Pincode:</strong></div>
+      <div class="row">
+         
+        {$billing_pincode}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="row"> <strong>Shipping Address:</strong></div>
+      <div class="row">
+        	
+        {$shipping_address}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row"> <strong>Shipping Country:</strong></div>
+      <div class="row">
+         
+        {$shipping_country_id}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">  <strong>Shipping State:</strong></div>
+      <div class="row">
+         
+        {$shipping_state_id}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">  <strong>Shipping City:</strong></div>
+      <div class="row">
+         
+        {$shipping_city}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row"> <strong>Shipping Pincode:</strong></div>
+      <div class="row">
+         
+        {$shipping_pincode}
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-left:16px;" class="row form-group">{$FormButtons}</div>
+<style type="text/css" media="screen">
+  .member-account-member-address-form select, .member-account-member-billing-shipping-address-form select {
+  width: 100%;
+  }
+  
+  .member-account-member-address-form textarea, .member-account-member-billing-shipping-address-form textarea {
+  width: 100%;
+  }
+  
+  .member-account-member-address-form input, .member-account-member-billing-shipping-address-form input {
+  width: 100%;
+  }
+</style>

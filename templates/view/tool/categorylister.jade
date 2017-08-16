@@ -1,0 +1,17 @@
+div(id='{$_name}')
+	{category_list}
+	ul
+		{rows}{row}
+		li(data-id='{$id}')
+			a(href="{$url}") {$name} 
+			small {item_count_wrapper}{$item_count} - items {/}
+			{image_wrapper}
+			img(src="{$category_image_url}")
+			{/}
+			{price_wrapper}
+			p {$min_price} - {$max_price}
+			{/}
+			div
+				{$nested_category}
+		{/}{/}
+	{/}

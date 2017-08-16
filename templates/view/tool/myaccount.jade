@@ -1,0 +1,124 @@
+div(id="{$_name}" class="{$class} " style="{$style} ")
+	{no_auth}
+	{$no_auth_message}
+	{noAuth}{/noAuth}{/}
+	{myaccount_container_wrapper}
+	.row
+		.col-md-3.col-lg-3.col-sm-12.col-xs-12.member-acount-left-panel
+			div.thumbnail(style="height:230px;background: #43cea2;background: -webkit-linear-gradient(to left, #43cea2 , #185a9d);background: linear-gradient(to left, #43cea2 , #185a9d);")
+				{avtar}
+				img(style="width:130px;min-height:130px;max-height:130px;margin-top:30px;border:5px solid #fff;background-clip:padding-box;border-radius:18%;" alt-text="" src='{image}./vendor/xepan/commerce/templates/images/memberphoto.png{/}' onerror="this.src='./vendor/xepan/commerce/templates/images/memberphoto.png'")
+				{/}
+				span.text-center
+					h2(style="color:white;font-size:20px;"){$name} 
+					div
+						small.text-center.myaccount-user-image(style ="color:#ffffff; cursor:pointer; cursor: hand; max-width:600px;") Edit Image
+			.list-group-item
+				{$myaccount}
+			.list-group-item
+				{$order}
+			{mytemplate_bar}
+			.list-group-item
+				{$mytemplate}
+			{/mytemplate_bar}
+			.list-group-item
+				{$mydesign}
+			.list-group-item
+				{$setting}
+		.col-md-9.col-lg-9.col-sm-12.col-xs-12
+			{myaccount_wrapper}
+			h2(style="font-size:25px") Account Information
+			hr
+			.pull-right 
+				b Member Since: &nbsp; 
+				{$created_at}  
+			h1(style='font-size:18px') {$name}
+			{email_wrapper}
+			.thumbnail
+				{emails}
+				{email_layout}
+				{rows}{row}
+				{$value}
+				{/}{/}
+				{/}
+				{/}
+			{/email_wrapper}
+			{Contact_wrapper}
+			.thumbnail
+				{contacts}
+				{contact_layout}
+				{rows}{row}
+				{$value}
+				{/}{/}
+				{/}
+				{/}
+			{/Contact_wrapper}
+			.row(style="padding-bottom:20px;")
+				.col-md-4
+					h3(style="font-size:15px") Permanent Address
+					p
+						{$member_address}
+						{$city}
+						{$state}
+						{$country}
+						{$pin_code}
+				.col-md-4
+					h3(style="font-size:15px") Billing Address
+					p
+						{$member_billing_address}
+						{$billing_city}
+						{$billing_state}
+						{$billing_country}
+						{$billing_pin_code}
+				.col-md-4
+					h3(style="font-size:15px") Shipping Address
+					p
+						{$member_shipping_address}
+						{$shipping_city}
+						{$shipping_state}
+						{$shipping_country}
+						{$shipping_pin_code}
+			.row
+				h1(style='font-size:18px') Recent Orders
+				{$recentorder}
+			{/}
+			{order_wrapper}
+			h2(style="font-size:25px") Order History
+			hr
+			{$order_history}
+			{/}
+			{mydesign_wrapper}
+			h2(style="font-size:25px") My Designs
+			hr
+			{$my_designs}
+			{/}
+			{mytemplate_wrapper}
+			h2(style="font-size:25px") My Templates
+			hr
+			{$my_templates}
+			{/}
+			{setting_wrapper}
+			h2(style="font-size:25px") Settings
+			hr
+			{$settings}
+			{/}
+
+	{/}
+style.
+	.member-acount-left-panel .list-group-item{
+		padding:0px!important;
+		padding-top:0px!important;
+	}
+	.member-acount-left-panel h1{
+		color:black!important;
+	}
+	.member-acount-left-panel .btn{
+		border-radius:0px!important;
+	}
+
+	.xepan-designer-lister-images-paginator a{
+		padding: 10px;
+	}
+	.clearfix{
+		padding-bottom: 20px;
+	}

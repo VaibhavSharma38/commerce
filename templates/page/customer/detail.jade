@@ -1,0 +1,136 @@
+#user-profile
+  .col-lg-12.col-md-12.col-sm-12
+    {$contact_view_full_width}
+  .col-lg-3.col-md-4.col-sm-4 {$contact_view}
+  {details}
+  .col-lg-9.col-md-8.col-sm-8
+    .main-box.clearfix
+      .tabs-wrapper.profile-tabs
+        ul.nav.nav-tabs.responsive-tabs
+          li.active
+            a(data-toggle='tab', href='#tab-BasicInfo') Customer Info
+          li
+            a(data-toggle='tab', href='#tab-Orders') Orders
+          li
+            a(data-toggle='tab', href='#tab-Invoice') Invoice
+          li
+            a(data-toggle='tab', href='#tab-Activity') Activity
+          li
+            a(data-toggle='tab', href='#tab-freelacat') Freelancer Category
+        .tab-content
+          #tab-BasicInfo.tab-pane.active
+            #BasicInfo
+            | {basic_info}
+            .col-lg-12
+              .main-box.clearfix
+                header.main-box-header.clearfix
+                  h1 {$organization}
+                  .row
+                    .col-lg-12
+                      .main-box
+                        header.main-box-header.clearfix
+                          h2 Legal Information:
+                        .main-box-body.clearfix
+                          .row.xepan-push
+                            .col-lg-3
+                              label  
+                              strong Tin Number:
+                              div {$tin_no}
+                            .col-lg-3
+                              label  
+                              strong Pan Number:
+                              div {$pan_no}
+                            .col-lg-3
+                              label  
+                              strong Currency Number:
+                              div {$currency}{$currency_id}
+                            .col-lg-3
+                              label
+                              strong User Id :
+                              div {$user}{$user_id}
+                          .row    
+                            .col-lg-3
+                              label  
+                              strong Is Designer:
+                              div {$is_designer}  
+                  .row
+                    .col-lg-12
+                      .main-box
+                        header.main-box-header.clearfix
+                          h2 Billing Address:
+                        .main-box-body.clearfix#billing-address
+                          .row.xepan-push
+                            .col-lg-12
+                              label  
+                              strong Address:
+                          .row.xepan-push
+                            .col-lg-12  
+                              {$billing_address}
+                          .row.xepan-push  
+                            .col-lg-3
+                              label  
+                              strong Country:
+                              div {$billing_country}{$billing_country_id}
+                            .col-lg-3
+                              label  
+                              strong State:
+                              div {$billing_state}{$billing_state_id}
+                            .col-lg-3
+                              label  
+                              strong City:
+                              div {$billing_city}
+                            .col-lg-3
+                              label  
+                              strong Pin Code:
+                              div {$billing_pincode}
+                  .row
+                    .col-lg-12
+                      .checkbox-nice
+                        {$same_as_billing_address}
+                  .row
+                    .col-lg-12
+                      .main-box#shipping_address
+                        header.main-box-header.clearfix
+                          h2 Shipping Address:
+                        .main-box-body.clearfix 
+                          .row.xepan-push
+                            .col-lg-12
+                              label  
+                              strong Address:
+                          .row.xepan-push
+                            .col-lg-12  
+                              {$shipping_address}
+                          .row.xepan-push  
+                            .col-lg-3
+                              label  
+                              strong Country:
+                              div {$shipping_country}{$shipping_country_id}
+                            .col-lg-3
+                              label  
+                              strong State:
+                              div {$shipping_state}{$shipping_state_id}
+                            .col-lg-3
+                              label  
+                              strong City:
+                              div {$shipping_city}
+                            .col-lg-3
+                              label  
+                              strong Pin Code:
+                              div {$shipping_pincode}
+                  .row
+                    .col-lg-12
+                      .main-box
+                        .main-box-body.clearfix
+                          label
+                          strong Remarks:
+                          div.atk-form-row.atk-form-field  {$remark}          
+            | {/}
+          #tab-Orders.tab-pane
+            {$orders}
+          #tab-Invoice.tab-pane
+            {$invoices}
+          #tab-Activity.tab-pane
+            {$activity}
+          #tab-freelacat.tab-pane
+            {$freelancer_cat_asso}{$cat_asso_form}
+  {/}

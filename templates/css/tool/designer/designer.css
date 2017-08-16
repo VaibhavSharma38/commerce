@@ -1,0 +1,864 @@
+/*.xshop-designer-tool input{
+  width:auto !important;
+}*/
+
+h3.xshop-designer-layout-name{
+  color: black;
+}
+
+.xshop-designer-text-up-down-btn{
+  padding: 0px !important;
+}
+.text-editor-font-family{
+  width: 100px!important;
+}
+
+/*.text-editor-font-size{
+
+}*/
+
+.xshop-designer-layout,.xdesigner-page-layout-thumbnail{
+  opacity: 1 !important;
+}
+
+.xshop-designer-tool {
+  /*outline: 1px solid black !important;*/
+  width: 100%;
+  margin: 0 auto;
+  /*box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);*/
+}
+.xshop-designer-tool-topbar {
+  height: auto;
+  /*min-height: 73px;*/
+  /*width: 100%;*/
+  margin: 0px 0 20px 0;
+  background: linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 1px solid #b5babf;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.xepan-xshop-designer-cart-container {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+.xshop-designer-tool-topbar-button {
+  width: 4em;
+  float: left;
+  border: 1px solid rgb(90,178,245);
+  height: 4em;
+  margin: 0.25em;
+}
+.xshop-designer-tool-bottombar {
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+#xshop-designer-component-panel:before {
+  clear: both;
+}
+#xshop-designer-component-panel {
+  /*float: left;*/
+  outline: 5px solid gray;
+  /*min-width: 300px;*/
+  /*min-height: 500px;*/
+}
+.xshop-desiner-tool-canvas {
+  outline: 0px solid green !important;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+.xshop-desiner-tool-safe-zone {
+  outline: 1px dashed rgb(227,30,36) !important;
+}
+.xshop-designer-tool .ui-selected {
+  outline: 2px dashed rgb(90,178,245) !important;
+}
+.input-group {
+  margin-bottom: 10px;
+}
+.guidex {
+  display: none;
+  background: #0aa;
+  width: 0px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  border-left: 1px dotted black;
+}
+.guidey {
+  display: none;
+  background: #0aa;
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  border-bottom: 1px dotted black;
+}
+.page_row,
+.layout_row {
+  margin: 2px;
+}
+.xshop-designer-freelancer-tool {
+  /*blue:#2e6da4;warning:#f0ad4e;success:#4cae4c;*/
+  /*background-color: #f0ad4e;*/
+  /*color: white;*/
+  min-width: 60px;
+  /*margin-left: 20px;*/
+}
+.xshop-designer-item-member-images {
+  /*Images Outer Div*/
+  /*width: 40px;*/
+}
+.xshop-designer-add-replace {
+  position: absolute;
+  top: 0;
+  height: 93%;
+  width: 90%;
+  /*opacity: 0.5;*/
+  text-align: center;
+  display: none;
+  /* comment this out for CSS hover */
+  /*background-color: #333;*/
+  transition: all 0.5s ease;
+}
+.xshop-designer-add-replace div {
+  color: #fff;
+}
+
+.xshop-designer-pagelayout {
+  margin: 10px auto 0px auto;
+  position: relative;
+  /*width:600px;*/
+  max-width: auto;
+}
+.xshop-designer-pagelayout > div.ui-selected {
+  /*background-color: red;*/
+}
+.xshop-designer-pagelayout > div.ui-selected h3 {
+  font-weight: 700;
+}
+
+div.xshop-designer-pagebtn,
+.xshop-designer-layoutbtn {
+  min-height: 60px;
+  max-width: 180px;
+  text-align: center;
+  cursor: pointer;
+  text-align: center;
+  float: left;
+  margin: 0 5px 0 5px ;
+  box-shadow: 0 10px 6px -6px #777777;
+  transition: all 0.5s ease;
+  border: 1px solid #b5babf;
+  -webkit-box-shadow: 0 10px 6px -6px #777777;
+  -moz-box-shadow: 0 10px 6px -6px #777777;
+  padding: 3px;
+}
+.xshop-designer-pagebtn h3,
+.xshop-designer-layoutbtn h3 {
+  /*margin-top: 20px;*/
+}
+
+img.xdesigner-page-layout-thumbnail{
+  width:130px;
+  padding: 3px;
+  margin: 0 auto !important;
+  max-width: 100% !important;
+}
+
+.xshop-designer-layoutbtn{
+  width: 150px;
+}
+
+.xshop-designer-layout{
+  width:100%;
+  margin-bottom: 20px;
+  /*overflow-x:scroll; */
+}
+
+.xshop-designer-tool-topbar-buttonset {
+  min-width: 50%;
+}
+.xshop-designer-tool-topbar-buttonset > .btn {
+  border-right: 1px solid #ccc;
+  border-radius: 0px;
+  min-width: 70px;
+}
+.xshop-designer-tool-workplace,.xshop-designer-tool-workplace-previous-wrapper, .xshop-designer-tool-workplace-next-wrapper{
+  margin: 30px auto;
+}
+/*TextBox Tool Tip Designer*/
+#xshop-designer-text-editor,#xshop-designer-calendar-editor {
+  position: relative;
+  z-index: 0;
+  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);*/
+  /*padding:0 1% 1% 0;*/
+}
+
+#xshop-designer-text-editor > button{
+  padding: 0px !important;
+  border-radius: 0px !important;
+  margin: 3px;
+}
+
+#xshop-designer-text-editor button{
+  width: auto !important;
+}
+
+.xshop-options-editor {
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0
+}
+
+/*.xshop-designer-tool-topbar-options {
+  max-width: 50%;
+}*/
+
+
+.xshop-designer-tool-topbar-options span.ui-button-text{
+  padding: 0px !important;
+}
+
+#xshop-designer-text-editor button{
+  margin-left: 25px !important;
+}
+
+.xshop-designer-text-input-outer-div{
+  padding: 5px;
+}
+
+.xshop-designer-text-input {
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.4;
+  min-height: 35px;
+  display: inline-block;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border-radius: 0px !important;
+}
+
+#xshop-designer-image-editor > .btn-ground {
+  border: 1px solid #cccccc;
+}
+
+.xshop-designer-tool-workplace .ui-resizable-se{
+  border: 8px solid rgb(90,178,245);
+}
+
+.xshop-designer-tool-workplace .ui-resizable-sw {
+  background-image: none !important;
+  cursor: sw-resize !important;
+  bottom: 0px !important;
+  left: 0px !important;
+}
+
+.xshop-designer-tool-workplace .ui-resizable-ne {
+  border: 8px solid rgb(90,178,245);
+  background-image: none !important;
+  cursor: ne-resize !important;
+  top: 0px !important;
+  right: 0px !important;
+}
+
+.xshop-designer-tool-workplace .ui-resizable-nw {
+  border: 8px solid rgb(90,178,245);
+  background-image: none !important;
+  cursor: nw-resize !important;
+  left: 0px !important;
+  top: 0px !important;
+}
+.xshop-designer-tool-workplace .ui-resizable-n {
+  border: 8px solid rgb(90,178,245);
+  top: 0px !important;
+}
+
+.xshop-designer-tool-workplace .ui-resizable-e {
+  border: 8px solid rgb(90,178,245);
+  right: 0px !important;
+  height: auto !important;
+  width: auto !important;
+  top:50%;
+}
+.xshop-designer-tool-workplace .ui-resizable-s {
+  border: 8px solid rgb(90,178,245);
+  bottom: 0px !important;
+  width: auto !important;
+}
+
+.xshop-designer-tool-workplace .ui-resizable-w {
+  border: 8px solid rgb(90,178,245);
+  left: 0px !important;
+}
+.xshop-designer-tool-workplace .ui-resizable-e,
+.xshop-designer-tool-workplace .ui-resizable-w,
+.xshop-designer-tool-workplace .ui-resizable-n,
+.xshop-designer-tool-workplace .ui-resizable-s {
+  border: 4px solid rgb(90,178,245);
+  position: inherit;
+  display: none;
+}
+
+.xshop-designer-tool-workplace .ui-resizable-e {
+  cursor: e-resize !important;
+}
+.xshop-designer-tool-workplace .ui-resizable-w {
+  right: -3px;
+  top: 50%;
+  height:auto !important;
+  cursor: w-resize !important;
+}
+.xshop-designer-tool-workplace .ui-resizable-n {
+  cursor: n-resize !important;
+  left: 50%;
+  margin-left: -3px;
+  top: -3px;
+}
+.xshop-designer-tool-workplace .ui-resizable-s {
+  cursor: s-resize !important;
+  left: 50%;
+  bottom: -3px;
+  margin-left: -3px;
+}
+.xepan-designer-tool .active {
+  background-color: #f2f2f2;
+  color: white;
+  box-shadow:1px 1px 1px gray !important;
+}
+/*Cart CSS*/
+.xshop-item-detail {
+  background-color: white !important;
+  box-shadow: 0 0 10px #ccc;
+  padding: 2%;
+}
+.section {
+  padding: 5px;
+  border-top: 1px solid #f2f2f2;
+  margin: 0;
+}
+.xshop-item-detail-review {
+  background-image: url(rivew.png);
+  background-repeat: no-repeat;
+  background-size: 20% 100%;
+  height: 20px;
+}
+.xshop-item-custom-field {
+  clear: both;
+}
+.xshop-item-custom-field,
+.xshop-add-to-cart-qty,
+.xshop-item-add-to-cart-btn {
+  clear: none;
+  display: inline-block;
+}
+.xshop-add-to-cart-qty {
+  /*width: 20% !important;*/
+}
+.xshop-item-offer-supplier-shipping {
+  border-left: 1px solid #f2f2f2;
+}
+.xshop-item-tags-label {
+  /*webkit-box-shadow: 0 8px 6px -6px black;
+  -moz-box-shadow: 0 8px 6px -6px black;
+  box-shadow: 0 8px 6px -6px black;*/
+}
+.xshop-item-detail-title {
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  font-size: 1.2em;
+  padding: 0.5rem;
+}
+.xshop-item-detail-tags {
+  color: gray;
+  padding: 0.7rem;
+}
+.xshop-item-affiliate-block {
+  padding: 0.7rem;
+}
+
+.xepan-designer-calendar-customer-options-panel{
+  background: linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  box-shadow:2px 2px 8px -2px #888;
+  min-height:120px;
+  padding-top:10px;
+}
+
+.xshop-text-options,.xshop-options-editor{
+  position: absolute ;
+  visibility: visible;
+  overflow: inherit !important;
+}
+
+#xshop-designer-image-editor{
+  min-width:360px;
+  width: 400px;
+  max-width:450px; 
+}
+
+#xshop-designer-image-editor .btn{
+  border-left:1px solid #c3c3c3 !important;
+  width:65px;
+  border-radius: 0px !important;
+}
+
+.xshop-designer-image-remove-btn{
+}
+.xshop-designer-image-crop-btn{
+
+}
+.xshop-desiner-tool-safe-zone{
+  
+}
+
+.xshop-designer-top-bar-stick {
+    position: fixed;
+    top: 20px;
+    z-index: 10000;
+    width:100%;
+}
+
+.xepan-designer-dropped-image{
+  width: auto;
+}
+
+.xepan-designer-lock-component{
+  pointer-events:none;
+}
+
+.xepan-designer-image-unlock-btn{
+  top:0;
+  left:0;
+  position: absolute;
+  box-shadow:2px 2px 5px #800000;
+}
+
+.xepan-designer-unlock-component,.xepan-designer-image-unlock-btn{
+  pointer-events:auto;
+  cursor:pointer;
+}
+
+.xepan-designer-button-disable{
+  background-color: rgb(0, 0, 0, .5);
+  color:gray;
+  cursor:default;
+}
+
+/*.xshop-designer-calendar-color-picker > button{
+  background-color: none !important;
+}*/
+
+.xshop-designer-backgroundimage-crop{
+  height: 300px !important;
+}
+.xshop-designer-image-crop{
+  height: 300px !important;
+}
+
+.xshop-calendar-show-hide-checkbox{
+  width: 30px !important;
+  float:left;
+}
+
+.xshop-calendar-editor-header{
+  /*background:linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+  color:black;
+  font-size: 12px;
+  text-align: center;
+}
+
+.xdesigner-starting-month label, .xdesigner-starting-month input{
+  float: left !important;
+}
+
+.xshop-calendar-valign span {
+  -ms-transform: rotate(90deg); 
+  /* IE 9 */     
+  -webkit-transform: rotate(90deg); 
+  /* Chrome, Safari, Opera */     
+  transform: rotate(90deg);
+}
+
+/*input.xshop-designer-calendar-inputx,input.xshop-designer-calendar-inputy,.xshop-desigber-calendar-width, .xshop-desigber-calendar-height{
+  width: 50px !important;
+}*/
+.ui-colorpicker-dialog input{
+  /*width:auto!important;*/
+}
+
+.xshop-designer-ft-page > .list-group, .xshop-designer-ft-layout > .list-group{
+  height:300px;
+  overflow-y: auto;
+}
+
+.xdesigner-page-btn, .xdesigner-layout-btn{
+  margin-right:3px; 
+}
+
+
+.xshop-designer-tool-topbar-buttonset .btn{
+    border-radius: 0 !important;
+    border-right: 1px solid #ccc !important;
+    min-width: 70px !important;
+    background: none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 14px !important;
+    margin-right: 0px;
+    font-weight: normal;
+    outline: 0 none;
+    padding: 6px 12px;
+    color: black;
+
+}
+
+
+/*Calendar css*/
+.designer-tool-calendar-option > div, .xepan-designer-calendar-customer-options-panel > div{
+  /*background-color: #fff;*/
+  border: 1px solid #ddd;
+  display: block;
+  margin-bottom: -1px;
+  padding: 5px;
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 35px;
+}
+
+.designer-tool-calendar-option > div > label,.xepan-designer-calendar-customer-options-panel > div > label {
+  width:60%;
+}
+
+.designer-tool-calendar-option > div > input,
+.designer-tool-calendar-option > div > select, 
+.designer-tool-calendar-option > div > button , 
+.xepan-designer-calendar-customer-options-panel > div > input, 
+.xepan-designer-calendar-customer-options-panel select, 
+.xepan-designer-calendar-customer-options-panel button{
+  width:40%;
+}
+
+#xshop-designer-calendar-editor{
+  width: 500px !important;
+  max-width: 500px;
+}
+
+.xshop-designer-tool-topbar-options  .ui-tabs-vertical { 
+  width: 55em; 
+}
+.xshop-designer-tool-topbar-options  .ui-tabs-vertical .ui-tabs-nav { 
+  float: left; 
+  width: 8em; 
+  padding-left:0px;
+}
+.xshop-designer-tool-topbar-options  .ui-tabs-vertical .ui-tabs-nav li { 
+  clear: left;
+  width: 100%; 
+  background:#f0f2f3;
+}
+
+.xshop-designer-tool-topbar-options  .ui-tabs-vertical .ui-tabs-nav li a { 
+  display:block; 
+  padding:0.8em;
+}
+
+.xshop-designer-tool-topbar-options  .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { 
+  padding-bottom: 0; 
+  padding-right: .1em; 
+  border-right-width: 1px; 
+  background: white;
+}
+
+#xshop-designer-calendar-editor{
+  background-color: white;
+}
+
+#xepan-designer-vertical-tab{
+  background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0;box-shadow:0px 0px 0px;
+  border:0px;
+  border-radius: 0px;
+  height: 200px;
+}
+
+#xepan-designer-vertical-tab.ui-tabs{
+  padding: 0em;
+}
+
+#xepan-designer-vertical-tab > div{
+  display: block;
+  /*width:70%;
+  float:left;*/
+}
+
+.xshop-designer-tool-editor-option-close{
+  background-color: rgb(227, 30, 36);
+  border-radius: 5px 5px 0 0;
+  color: white;
+  margin: 0;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+  top: -20px;
+}
+
+.xepan-designer-calendar-customer-options-panel{
+  background:rgba(0, 0, 0, 0) linear-gradient(to bottom, #fefefe, #f0f2f3) repeat scroll 0 0;box-shadow:0px 0px 0px;    
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 120px;
+}
+
+
+/*step color*/
+.xepan-designer-step-active{
+  background-color:rgb(119,186,93); 
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+.xepan-designer-step-deactive{
+  padding: 10px;
+  background-color: rgb(242,242,242);
+  color: black;
+  border-right:1px solid rgb(235,103,82);
+}
+
+.xepan-designer-next-step-button, .xepan-designer-previous-step-button{
+  padding: 10px;
+  border-radius:40px !important;
+  width:80px !important;
+  transition: all .2s ease-in-out;
+}
+
+.xepan-designer-next-step-button{
+  margin-right: 10px;
+}
+
+.xepan-designer-previous-step-button{
+  margin-left: 10px;
+}
+
+.field-error-text{
+  color:red !important;
+}
+
+
+.xepan-designer-next-step-button:hover{
+  transform: scale(1.1);
+  background-color: rgb(68,192,240) !important;
+  color: white !important;
+}
+
+.xepan-designer-step-button-dimmed{
+  background-color: #f2f2f2 !important;
+}
+.xepan-designer-step-button-dimmed.finish,.xepan-designer-step-button-dimmed.finish:hover{
+  border:2px solid rgb(119,186,93);
+  width: 80px;
+}
+
+.xshop-designer-item-name{
+  margin-top:40px;
+  font-weight:100;
+  text-align:center;
+  padding-bottom:20px;
+}
+
+.xepan-designer-next-step-button, .xepan-designer-previous-step-button{
+  padding: 5px;
+}
+
+/*Designer Images CSS*/
+.xepan-designer-image-dialog{
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.xepan-designer-manage-images{
+  
+}
+
+
+.xepan-designer-manage-images .nav-tabs > .active > a{
+  background-color:#f2f2f2 !important; 
+}
+
+.xepan-designer-images-search-bar{
+  width: 100% !important;
+  border-bottom:1px solid #f3f3f3;
+}
+
+.xepan-designer-image-cat-image{
+  width: 100% !important;
+  margin-top: 5px;
+  padding: 0px !important;
+}
+
+.xepan-designer-image-cat-image .category{
+  border-right:1px solid #f2f2f2;
+  margin:0px;
+  padding:0px;
+}
+.xepan-designer-image-cat-image .images{
+  padding: 0px !important; 
+}
+
+.xepan-designer-image-cat-image .category .list-group{
+  width:105%;
+}
+float:right;position:absolute;top:0px;right:0px;
+.xepan-designer-image-cat-image .category .list-group-item{
+  width: 100%;
+  padding:0px;
+  margin:0px;
+  border:0px;
+}
+.xepan-designer-image-cat-image .category,.xepan-designer-image-cat-image .images{
+  min-height: 350px;
+  height: 350px;
+  max-height: 350px;
+  overflow-y:scroll;
+  overflow-x:hidden;
+} 
+
+.xepan-designer-image-cat-image .category button{
+  background: none !important;
+  border: 0px !important;
+  color: #2e6da4 !important;
+}
+
+.xepan-designer-category-crud .list-group{
+  height: 260px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.xepan-designer-category-crud .list-group-item > .row-buttons{
+  float:right;
+  position:absolute;
+  top:0px;
+  right:0px;
+  display: none;
+  transition: opacity 1s ease-out;
+}
+.xepan-designer-category-crud .list-group-item:hover > .row-buttons{
+  display: block;
+  transition: opacity 1s ease-in;
+  background-color:white !important;
+}
+
+.xepan-designer-category-crud .list-group-item > .row-buttons > .atk-effect-danger{
+  color: #a94442 !important;
+}
+
+.xepan-designer-image-cat-image .category button:hover,.xepan-designer-image-cat-image .category button:active{
+  color: #2e6da4 !important;
+}
+
+.xepan-designer-image-cat-image .category .atk-actions{
+  border-top:1px solid #f2f2f2;
+}
+.xepan-designer-images-search-bar p.info{
+  padding-top:8px; 
+}
+.xepan-designer-image-cat-image .category .list-group-item.odd{
+  background-color: #f2f2f2;
+}
+.xepan-designer-image-cat-image .category .list-group-item.even{
+  background-color: #fcfcfc;
+} 
+
+.xepan-designer-manage-images .nav-tabs li{
+  background-color: none !important; 
+}
+
+#xepandesignerimagetabcontent{
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+.xepan-designer-lister-images-paginator a{
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
+}
+.image-category-active{
+  background-color: #3899ec!important;
+  color:white!important;
+}
+
+
+.xshop-designer-tool-editing-helper > div:first-of-type{
+    float: left;
+}
+
+.xshop-designer-tool-editing-helper.image > div{
+    width: 25%;
+    float: left;
+}
+
+.xshop-designer-calendar-color-picker > button {
+  width:auto !important;
+}
+
+#xshop-designer-calendar-events-dialog .row input, #xshop-designer-calendar-events-dialog table{
+  width: 100%;
+}
+
+#xshop-designer-calendar-events-dialog,#xshop-designer-calendar-events-dialog tr td{
+  padding: 10px;
+}
+
+#xshop-designer-calendar-events-dialog th{
+  font-weight:bold;
+  font-size: 14px;
+  padding: 10px 10px 0px 10px;
+}
+
+#xshop-designer-calendar-events-dialog h3{
+  font-size: 16px;
+  text-align: center;
+  border-bottom:1px solid #f3f3f3; 
+  padding-top: 20px;
+}
+
+#xshop-designer-text-angle,#xshop-designer-image-angle,#xshop-designer-calendar-angle{
+  width:60px;
+}
+
+.xshop-designer-pagethumbnail .xshop-designer-tool-workplace, .xshop-designer-layoutthumbnail .xshop-designer-tool-workplace{
+  margin-top:0px;
+}
+
+.xshop-designer-layout{
+  padding-top: 20px;
+}
+
+.pagelayoutname{
+  padding: 5px;
+}
+
+.ui-datepicker-header > a, .ui-datepicker-header > div{
+  background: #adbccc;
+  border: 1px solid #98a4b3;
+  color: #2c3f53;
+  font-weight: normal;
+}
+
+.slick-track{
+  margin: 10px;
+}
+
+.xshop-render-tool-save-btn{
+  margin-top:8px !important;
+  border-right:0px solid !important;
+}
+
+.xepan-designer-rendertool-calendar-btn{
+  margin-top:5px !important;
+}

@@ -1,0 +1,140 @@
+
+<div id="{$_name}" style="display:none" for-xepan-component="xepan/commerce/Tool_ShopCollectionDetail" class="xepan-tool-options">
+  <div id="xepan-cms-groups-panel" class="xepan-cms-groups-panel collapse in"></div>
+  <div class="xepan-cms-group-panel clearfix">
+    <h3 data-toggle="collapse" data-target="#collapse-item-ShopCollectionDetail" aria-expanded="false" class="collapsed"><span>Shop Collection Detail Options</span></h3>
+    <div id="collapse-item-ShopCollectionDetail" class="xepan-cms-tools-bar-panel row-fluid collapse in">
+      <div class="panel-body">
+        <div id="xepan-cms-groups-panel" class="xepan-cms-groups-panel collapse in"></div>
+        <div class="xepan-cms-group-panel clearfix">
+          <div data-toggle="collapse" data-target="#show-hide-item-ShopCollectionDetail" aria-expanded="false" class="panel panel-heading panel-primary collapsed"><span>Hide/ Show</span></div>
+        </div>
+        <div id="show-hide-item-ShopCollectionDetail" class="xepan-cms-tools-bar-panel row-fluid collapse">
+          <table class="table table-condensed table-hover">
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Price</td>
+                <td class="xepan-tool-option-value">
+                  <select id="show_price" data-attr="show_price" data-defaultvalue="false">
+                    <option value="true">Show</option>
+                    <option value="false">Hide</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Order By</td>
+                <td class="xepan-tool-option-value">
+                  <select id="order_by" data-attr="order_by" data-defaultvalue="false">
+                    <option value="collection_order">Shop</option>
+                    <option value="exclusive_order">Exclusive</option>
+                    <option value="clearance_order">Clearance</option>
+                    <option value="false">Hide</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Image</td>
+                <td class="xepan-tool-option-value">
+                  <select id="show_image" data-attr="show_image" data-defaultvalue="false">
+                    <option value="true">Show</option>
+                    <option value="false">Hide</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Image Type</td>
+                <td class="xepan-tool-option-value">
+                  <select id="image_type" data-attr="image_type" data-defaultvalue="Shop">
+                    <option value="Shop">Shop</option>
+                    <option value="Exclusive">Exclusive</option>
+                    <option value="Clearance">Clearance</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Show New</td>
+                <td class="xepan-tool-option-value">
+                  <select id="show_new" data-attr="show_new" data-defaultvalue="false">
+                    <option value="true">Show</option>
+                    <option value="false">Hide</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Item Count</td>
+                <td class="xepan-tool-option-value">
+                  <select id="show_item_count" data-attr="show_item_count" data-defaultvalue="false">
+                    <option value="true">Show</option>
+                    <option value="false">Hide</option>
+                  </select>
+                </td>
+              </div>
+            </tr>
+          </table>
+        </div>
+        <div id="xepan-cms-groups-panel" class="xepan-cms-groups-panel collapse in"></div>
+        <div class="xepan-cms-group-panel clearfix">
+          <div data-toggle="collapse" data-target="#item-ShopCollectionDetail-url" aria-expanded="false" class="panel panel-heading panel-primary collapsed"><span>Page Links</span></div>
+        </div>
+        <div id="item-ShopCollectionDetail-url" class="xepan-cms-tools-bar-panel row-fluid collapse">
+          <table class="table table-condensed table-hover">
+            <tr>            
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">URL Page</td>
+                <td class="xepan-tool-option-value"> 
+                  <input id="url_page" data-attr="url_page"/>
+                </td>
+              </div>
+            </tr>
+          </table>
+        </div>
+        <div id="xepan-cms-groups-panel" class="xepan-cms-groups-panel collapse in"></div>
+        <div class="xepan-cms-group-panel clearfix">
+          <div data-toggle="collapse" data-target="#item-ShopCollectionDetail-layout" aria-expanded="false" class="panel panel-heading panel-primary collapsed"><span>Layout</span></div>
+        </div>
+        <div id="item-ShopCollectionDetail-layout" class="xepan-cms-tools-bar-panel row-fluid collapse">
+          <table class="table table-condensed table-hover">
+            <tr>            
+              <div class="xepan-tool-option">
+                <td class="xepan-tool-option-title">Custom Template</td>
+                <td class="xepan-tool-option-value">
+                  <input id="url_page" data-attr="custom_template"/>
+                </td>
+              </div>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $('#{$_name} [data-attr]').on('change',function(){
+      $(current_selected_component).attr($(this).data('attr'),$(this).val());
+    });
+    
+    $('#{$_name}').on('show',function(event){
+      $('#{$_name} [data-attr]').each(function(index,value){
+        
+        var default_value = $(this).attr('data-defaultvalue');
+        if($(current_selected_component).attr($(this).data('attr')))
+          default_value = $(current_selected_component).attr($(this).data('attr'));
+        
+        $(this).val(default_value);
+      });
+    })
+  </script>
+</div>

@@ -1,0 +1,70 @@
+.xepan-grid.clearfix.atk-table.atk-table-zebra(id="{$_name}" class="{$class}")
+    {Pannel}
+    header.main-box-header.clearfix.atk-actions(class=" {$class} ")
+        div.filter-block( style="100%")
+            .pull-right {$grid_buttons} 
+    {/Pannel}
+    .main-box-body.clearfix.table-responsive
+          table.table.user-list.table-hover(style="width:100%")
+            {header}
+            thead
+                {cols}{col}
+                tr
+                    th
+                    th.text-center Sno
+                    th.text-left Particular
+                    th Rate
+                    th Qty
+                    th Shipping
+                    th Amount
+                        small
+                          div.text-muted  excluding tax
+                    th Tax %
+                    th Tax
+                    th.discount_header Discount
+                    th Amount
+                      small
+                        div.text-muted including tax
+                {/}{/}
+            {/}
+            {$subheader}
+
+            tbody
+                {rows}{row}
+                tr(class="{$odd_even}" data-id="{$id}")
+                  {cols}
+                  td{$edit}{$delete}<br/>{$export_design}<br/>{$export_attachments}
+                  td.text-center {sno}01{/}
+                  td.text-left {name}Item Name{/}
+                    small
+                      div HSN : {$hsn_no}
+                      div {$extra_info}
+                      div {$narration}
+                  td {price}price_here{/} &nbsp;/{$qty_unit}
+                  td {quantity}{/}
+                  td {$shipping_charge}
+                      br
+                      {$shipping_duration}
+                  td.sum-excluding-tax-amount {amount_excluding_tax}{/}
+                  td {tax_percentage}{/}
+                  td {tax_amount}tax_amount{/}
+                  td.item-discount {$discount}
+                  td.sum-amount {total_amount}total_amount{/}
+                  {/}
+                {/}{/}
+                {not_found}
+                div.row
+                    .col-md-12.text-center.alert.alert-warning(role="alert")
+                        span.icon-attention.fa.fa-exclamation-triangle  &nbsp;{$not_found_message}
+                {/}
+
+                {totals}
+                tfoot
+                    tr(class="totals")
+                        {cols}{col}
+                        <td {$tdparam}>
+                        {$content}
+                        </td>
+                        {/}{/}
+                {/}
+            {$Paginator}

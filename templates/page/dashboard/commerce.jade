@@ -1,0 +1,64 @@
+.row
+  .col-md-3
+    .main-box.infographic-box.colored.emerald-bg
+      i.fa.fa-shopping-cart
+      span.headline Todays Orders
+      span.value {$todays_orders}
+  .col-md-3
+    .main-box.infographic-box.colored.green-bg
+      i.fa.fa-shopping-cart
+      span.headline Todays invoices
+      span.value {$todays_invoices}
+  .col-md-3
+    .main-box.infographic-box.colored.purple-bg
+      i.fa.fa-money
+      span.headline Todays Payment 
+      span.value {$todays_payments}
+  .col-md-3   
+    .main-box.infographic-box.colored.red-bg
+      i.fa.fa-money
+      span.headline Remaining Payment 
+      span.value {$remaining_payments}
+.row
+  .col-md-6
+    {$order_grid} 
+  .col-md-6
+    {$invoice_grid}
+.row
+  .col-md-6   
+    {$favourite_item}
+  .col-md-6
+    .main-box
+      .clearfix
+        .infographic-box.merged.merged-top.pull-left
+          i.fa.fa-user.purple-bg
+          span.value.purple {$customers}
+          span.headline New Customers
+        .infographic-box.merged.merged-top.merged-right.pull-left
+          i.fa.fa-money.green-bg
+          span.value.green {$new_orders}
+          span.headline Orders
+      .clearfix
+        .infographic-box.merged.pull-left
+          i.fa.fa-eye.yellow-bg
+          span.value.yellow {$revenue}
+          span.headline Revenue
+        .infographic-box.merged.merged-right.pull-left
+          i.fa.fa-globe.red-bg
+          span.value.red {$countries}
+          span.headline Countries
+  .row
+    .col-md-6
+      h2 Today Sale This Month (Qty vs day/week)
+      h2 Top 5 Product based on day/week/month/year
+      h2 Conversion Rate
+      h2 Number of Product Sale day/week/month/year
+      h2 Number of Customer day/week/month/year
+      h2 Number of Order day/week/month/year
+      h2 Top 5 Invoice that are not paid day/week/month/year
+      h2 Order vs Invoice Graph
+      h2 Total Cancelled Order
+      
+    .col-md-6
+      {$Content}
+  

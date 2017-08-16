@@ -1,0 +1,34 @@
+.col-md-10
+  .main-box.clearfix
+    .tabs-wrapper.profile-tabs
+      ul.nav.nav-tabs.responsive-tabs
+        li.active
+          a(data-toggle='tab', href='#tab-quotation') Quotation
+        li
+          a(data-toggle='tab', href='#tab-salesorder') Sales Order  
+        li
+          a(data-toggle='tab', href='#tab-salesinvoice') Sales invoice
+        li
+          a(data-toggle='tab', href='#tab-purchaseorder') Purchases Order  
+        li
+          a(data-toggle='tab', href='#tab-purchaseinvoice') Purchases invoice 
+        li
+          a(data-toggle='tab', href='#tab-challan') Challan  
+      .tab-content
+        
+         #tab-quotation.tab-pane.active
+           {$quotation}
+         #tab-salesorder.tab-pane
+           {$salesorder}
+         #tab-salesinvoice.tab-pane
+           {$salesinvoice}
+         #tab-purchaseorder.tab-pane
+           {$purchaseorder}
+         #tab-purchaseinvoice.tab-pane
+           {$purchaseinvoice}
+         #tab-challan.tab-pane.clearfix
+           {$challan}
+//- script.
+//-   $('.responsive-tabs').responsiveTabs({
+//-         accordionOn: ['xs', 'sm']
+//-   });

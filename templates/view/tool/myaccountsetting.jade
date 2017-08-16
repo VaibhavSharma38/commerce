@@ -1,0 +1,23 @@
+.row
+  .col-lg-12.col-md-12.col-sm-12
+    .panel
+      ul.nav.nav-tabs.responsive-tabs
+        li.active
+          a(href='#tab-password', data-toggle='tab') Change Password
+        li
+          a(href='#tab-address', data-toggle='tab') Address
+        li
+          a(href='#tab-deactivate', data-toggle='tab') Deactivate My Account
+
+      .tab-content(style="padding:20px;")
+        #tab-password.tab-pane.active
+          .row
+            .col-md-12
+              {$user_name}
+              {$change_password}
+        #tab-address.tab-pane
+              |{$address}
+        #tab-deactivate.tab-pane
+          .row
+            .col-lg-12 
+              |{$deactivate}

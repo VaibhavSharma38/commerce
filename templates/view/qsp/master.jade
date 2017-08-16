@@ -1,0 +1,109 @@
+.col-lg-12(id="{$_name}")
+  .main-box.clearfix
+    header.main-box-header.clearfix
+      .filter-block
+        {$action}  
+    .main-box-body.clearfix
+      #invoice-companies.row
+        .col-sm-4.invoice-box
+          h4 {$contact}{contact_id}{/}
+              span.contact-due-amount {due_amount}0{/}
+          .invoice-icon.hidden-sm
+            i.fa.fa-money
+          .invoice-company
+            div
+              span.billing_address.atk-form-row.atk-form-field{$billing_address},
+            div
+              span.billing_country_id.atk-form-row.atk-form-field {$billing_country}{$billing_country_id},
+              span.billing_state_id.atk-form-row.atk-form-field {$billing_state}{$billing_state_id}, 
+              span.billing_city.atk-form-row.atk-form-field{$billing_city}.
+            p
+              span.billing_pincode.atk-form-row.atk-form-field{$billing_pincode}.
+            p
+              span {$contacts}
+            p
+              span {$emails}
+            .xepan-push
+        .col-sm-4.invoice-box
+          .row#shipping-hide
+            .xepan-push-large
+            .invoice-icon.hidden-sm
+              i.fa.fa-truck.xepan-push-small
+            .invoice-company
+              div
+                span.shipping_address.atk-form-row.atk-form-field  {$shipping_address},
+              div
+                span.shipping_country_id {$shipping_country}{$shipping_country_id},
+                span.shipping_state_id {$shipping_state}{$shipping_state_id},
+                span.shipping_city {$shipping_city}.
+              p
+                span.shipping_pincode {$shipping_pincode}.
+              p
+                span.shipping_tel {$shipping_contact}
+              p
+                span {$contacts}
+              p
+                span {$emails}
+        .col-sm-4.invoice-box.invoice-box-dates
+          .invoice-dates
+            .row.clearfix
+              .col-md-6.invoice-date
+                strong {type} DocType {/} No.
+              .col-md-6.invoice-number.input-full-width
+                span.pull-right.atk-form-row.atk-form-field(style="margin:auto;") {$document_no}
+            .invoice-date.clearfix
+              strong Create Date:
+                span.pull-right {$created_at}
+            .invoice-date.clearfix
+              strong Due Date:
+                span.pull-right.atk-form-row.atk-form-field{$due_date}
+      .invoice-box
+        {$item_info}
+      .invoice-box-total.clearfix
+        .row.xepan-push-large
+          .col-lg-6
+            .row
+              .col-sm-12.col-md-12.col-xs-6.text-left.invoice-box {narration} This Item to be sold and replaced and Reproduction and wastage. {/}
+            .row
+              {amountinwords}{/} 
+          .col-lg-6.xepan-push-large
+            .row.xepan-push
+              .col-sm-6.col-md-4.col-xs-6.text-left.invoice-box-total-label Gross Amount
+              .col-sm-6.col-md-8.col-xs-6.text-right.invoice-box-total-value#gross-amount {gross_amount} $ 00000000 {/}
+            .row.xepan-push-large
+              .col-sm-6.col-md-4.col-xs-6.text-left.invoice-box-total-label Discount 
+              .col-sm-6.col-md-8.col-xs-6.text-right.invoice-box-total-value#discount{discount_amount} $ 00000000 {/}
+            .row.xepan-push-large
+              .col-sm-6.col-md-4.col-xs-6.text-left.invoice-box-total-label Round Amount 
+              .col-sm-6.col-md-8.col-xs-6.text-right.invoice-box-total-value#round_amount{round_amount} $ 00000000 {/}    
+            .row.grand-total
+              .col-sm-6.col-md-4.col-xs-6.text-left.invoice-box-total-label Grand Total
+              .col-sm-6.col-md-8.col-xs-6.text-right.invoice-box-total-value#net_amount {net_amount} $ 0000000{/}
+        {$consumable_item_view}  
+      .invoice-summary.row
+        .col-lg-12
+          .col-lg-8.col-md-8.col-xs-8  
+            p Terms & Condition:
+            .tnc_id.atk-form-row.atk-form-field{$tnc_id}
+            {$tnc_text} 
+          .col-lg-1
+          .col-lg-3.col-md-3.col-xs-3
+            .row
+              .invoice-summary-item
+                {common_vat_wrapper}
+                strong Vat Sum
+                span
+                  {common_vat} 
+                  div {$id} =  {$taxation_sum} on {$net_amount_sum}
+                  {/}
+                {/}
+            .row
+              .invoice-summary-item
+                span.atk-form-row.atk-form-field.currency{$currency} {$currency_id} @ 
+                span.atk-form-row.atk-form-field.exchange_rate{$exchange_rate}
+                span.atk-form-row.atk-form-field.currency{$outsource_party} {$outsource_party_id} 
+            .row
+              .invoice-summary-item
+                strong Nominal 
+                <br/>
+                span.atk-form-row.atk-form-field.nominal{$nominal} {$nominal_id}

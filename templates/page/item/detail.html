@@ -1,0 +1,658 @@
+\
+<div style="opacity: 1;" class="row">
+  <div class="col-lg-12">
+    <div id="user-profile" class="row">
+      <div class="col-lg-3 col-md-4 col-sm-4">
+        <div class="main-box clearfix">{view_info}
+          <header class="main-box-header clearfix">
+            <h2 class="atk-form-field atk-form-row">{name} {/}</h2>
+          </header>
+          <div class="main-box-body clearfix">
+            <div class="profile"><small> {stock_available} Availabe In Stock {/}</small></div><img alt="" src="{$first_image}" class="img-responsive center-block"/>
+            <div class="profile-label"><span class="label label-info">{type}{/}</span></div>
+            <div class="profile-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div>
+            <div class="profile-since">Added in List: {created_at} created at {/}</div>
+            <div class="profile-details">
+              <ul class="fa-ul">
+                <li><i class="fa-li fa fa-truck"></i>Orders: <span>{total_orders} 0 {/}</span></li>
+                <li><i class="fa-li fa fa-shopping-cart"></i>Sold: <span>{total_sales} 0 {/}</span></li>
+              </ul>
+            </div>
+            <div style="display:none;" class="profile-message-btn center-block text-center"><a href="#" class="btn btn-success"><i class="fa fa-edit"></i>Edit</a></div>{/}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-8 col-sm-8">
+        <div class="main-box clearfix">
+          <div class="tabs-wrapper profile-tabs">
+            <ul class="nav nav-tabs responsive-tabs">
+              <li class="active"><a data-toggle="tab" href="#tab-Basic">Basic</a></li>
+              <li><a data-toggle="tab" href="#tab-Attribute">Attribute</a></li>
+              <li><a data-toggle="tab" href="#tab-QtyPrice">Qty&Price</a></li>
+              <li><a data-toggle="tab" href="#tab-Category">Category</a></li>
+              <li><a data-toggle="tab" href="#tab-Extra">Extra</a></li>
+              <li><a data-toggle="tab" href="#tab-ProductionPhase">Production Phase</a></li>
+              <li><a data-toggle="tab" href="#tab-Accounts">Accounts</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="tab-Basic" class="tab-pane active">{basic_info}
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="main-box clearfix">
+                      <header class="main-box-header clearfix">
+                        <h2> </h2>
+                      </header>
+                      <div class="main-box-body clearfix">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <label> </label><strong>Name:</strong>
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-lg-3 atk-form-row atk-form-field"> {name} Wedding Cards {/}
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-sm-3">
+                            <label> </label><strong>Code:</strong>
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-lg-3 atk-form-row atk-form-field"> {sku} W1001 {/}</div>
+                        </div>
+                        <div class="xepan-push"></div>
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <label></label><strong>Status:</strong>
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-lg-3 atk-form-row atk-form-field">{status}Publish{/}
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-lg-3">
+                            <label> </label><strong>Date:</strong>
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-lg-3 atk-form-row atk-form-field"> {expiry_date} 25-2-2016 {/}</div>
+                        </div>
+                        <div class="xepan-push"></div>
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <label> </label><strong>Description:</strong>
+                            <div class="xepan-push-small"></div>
+                          </div>
+                          <div class="col-lg-9 atk-form-row atk-form-field">{description} This Item to be sold. {/}</div>
+                        </div>
+                        <div class="xepan-push"></div>
+                        <div class="row">
+                          <div class="col-lg-3"></div>
+                          <div class="col-lg-3 atk-form-row atk-form-field">
+                            <div class="checkbox-nice">
+                              {is_template}
+                              {/}
+                            </div>
+                          </div>
+                          <div class="col-lg-3"></div>
+                          <div class="col-lg-3 atk-form-row atk-form-field">
+                            <div class="checkbox-nice">{$is_designable}</div>
+                          </div>
+                        </div>
+                        <div class="xepan-push"></div>
+                        <div class="row">
+                          <div class="col-lg-4 atk-form-row atk-form-field"><strong>Template: <br/></strong>{$duplicate_from_item_id}</div>
+                          <div class="col-lg-4 atk-form-row atk-form-field"><strong>Designer:<br/></strong>{$designer}{$designer_id}</div>
+                          <div class="col-lg-4 atk-form-row atk-form-field"><strong>To Customer:<br/></strong>{$to_customer_id}  </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="main-box">
+                          <header class="main-box-header clearfix">
+                            <h2>Item Type</h2>
+                          </header>
+                          <div class="main-box-body clearfix">
+                            <div class="row">
+                              <div class="col-lg-3 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_saleable}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-3 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_purchasable}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-3 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_productionable}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-3 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_allowuploadable}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-3 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">{$is_serializable}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="main-box">
+                          <header class="main-box-header clearfix">
+                            <h2>Renewable Item</h2>
+                          </header>
+                          <div class="main-box-body clearfix">
+                            <div class="row xepan-push-small">
+                              <div class="col-lg-6 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_renewable}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-2 atk-form-row atk-form-field"><strong>Remind To:</strong></div>
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                 
+                                {remind_to}
+                                {/}
+                              </div>
+                            </div>
+                            <div class="row">     
+                              <div class="col-lg-2"><strong>Value:</strong></div>
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                {renewable_value}
+                                {/}
+                              </div>
+                              <div class="col-lg-2"><strong>Unit:</strong></div>
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                 
+                                {renewable_unit}
+                                {/}              
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="main-box">
+                          <header class="main-box-header clearfix">
+                            <h2>Item Stock Info</h2>
+                          </header>
+                          <div class="main-box-body clearfix">
+                            <div class="row">
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {maintain_inventory}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {allow_negative_stock}
+                                  {/}
+                                </div>
+                              </div>
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_dispatchable}
+                                  {/}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                <div class="checkbox-nice">
+                                  {is_teller_made_item}
+                                  {/} 
+                                </div>
+                              </div>
+                              <div class="col-md-4"><strong>Stock Minimum Limit : </strong></div>
+                              <div class="col-lg-4 atk-form-row atk-form-field">
+                                {minimum_stock_limit}
+                                {/} 
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="main-box clearfix">
+                      <header class="main-box-header clearfix">
+                        <h2>{$website_display}</h2>
+                      </header>
+                      <div id="website_display" class="main-box-body clearfix">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="main-box">
+                              <header class="main-box-header clearfix">
+                                <h2>Item Display Option</h2>
+                              </header>
+                              <div class="main-box-body clearfix">
+                                <div class="row">
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {show_detail}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {show_price}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {is_visible_sold}
+                                      {/}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="main-box">
+                              <header class="main-box-header clearfix">
+                                <h2>Marked Option</h2>
+                              </header>
+                              <div class="main-box-body clearfix">
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-3 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {is_new}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {is_feature}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {is_mostviewed}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 atk-form-row atk-form-field">{display_sequence} 5 {/}<small style="width:80%" class="pull-left">Display Sequence</small></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="main-box">
+                              <header class="main-box-header clearfix">
+                                <h2>Enquiry Option</h2>
+                              </header>
+                              <div class="main-box-body clearfix">
+                                <div class="row">
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {is_enquiry_allow}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {enquiry_send_to_admin}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {item_enquiry_auto_reply}
+                                      {/}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="main-box">
+                              <header class="main-box-header clearfix">
+                                <h2>Item Comment Option</h2>
+                              </header>
+                              <div class="main-box-body clearfix">
+                                <div class="row">
+                                  <div class="col-lg-4 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {is_comment_allow}
+                                      {/}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <label> </label><strong>Comment:</strong>
+                                  </div>
+                                  <div class="col-lg-6 atk-form-row atk-form-field"> {comment_api} This Product is Genuine. {/}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="main-box">
+                              <header class="main-box-header clearfix">
+                                <h2>Item Other Option</h2>
+                              </header>
+                              <div class="main-box-body clearfix">
+                                <div class="row">
+                                  <div class="col-lg-12 atk-form-row atk-form-field">
+                                    <div class="checkbox-nice">
+                                      {add_custom_button}
+                                      {/}
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-4">
+                                    <label> </label><strong>Custom Button Label:</strong>
+                                    <div class="xepan-push-small"></div>
+                                  </div>
+                                  <div class="col-lg-2 input-full-width atk-form-row atk-form-field">
+                                     
+                                    {custom_button_label} Ipad {/}
+                                    <div class="xepan-push-small"></div>
+                                  </div>
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Custom Button Url:</strong>
+                                    <div class="xepan-push-small"></div>
+                                  </div>
+                                  <div class="col-lg-3 input-full-width atk-form-row atk-form-field">{custom_button_url} www.ios.com {/}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="main-box">
+                          <header class="main-box-body clearfix">
+                            <div class="xepan-push"></div>
+                            <div class="row">
+                              <div class="col-lg-3">
+                                <label> </label><strong>Terms & Condition:</strong>
+                              </div>
+                              <div class="col-lg-9 atk-form-row atk-form-field"> {terms_and_conditions} This Item have not replacement warranty. {/}</div>
+                            </div>
+                          </header>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="main-box">
+                      <header class="main-box-body clearfix">
+                        <div class="row xepan-push">
+                          <div class="col-lg-3">
+                            <label></label><strong>Upload File Lables:</strong>
+                          </div>
+                          <div class="col-lg-9 input-full-width atk-form-row atk-form-field">{$upload_file_label}</div><span>Comma separated multiple file name, ex.file_name_1:mandatory, file_name_2, file_name_3:mandatory, file_name_4</span>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <label></label><strong>Upload file hint:</strong>
+                          </div>
+                          <div class="col-lg-9 input-full-width atk-form-row atk-form-field">{$item_specific_upload_hint}</div>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-3">
+                            <label></label><strong>Upload file Group:</strong>
+                          </div>
+                          <div class="col-lg-9 input-full-width atk-form-row atk-form-field">{$upload_file_group}</div>
+                        </div>
+                      </header>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                Misc. Settings
+                </div>
+                <div class="row xepan-push-small">
+                  <div class="col-lg-3">
+                    <label></label><strong>Hide in Product:</strong>
+                  </div>  
+                  <div class="col-lg-3">
+                    <label></label><strong>Hide in Shop:</strong>
+                  </div>
+                  <div class="col-lg-3">
+                    <label></label><strong>HSN Code</strong>
+                  </div>
+                </div>
+
+                <div class="row xepan-push-small">
+                  <div class="col-lg-3">
+                    <div class="col-lg-9 input-full-width atk-form-row atk-form-field">{$hide_in_product}</div>
+
+                  </div>  
+                  <div class="col-lg-3">
+                    <div class="col-lg-9 input-full-width atk-form-row atk-form-field">{$hide_in_shop}</div>
+
+                  </div>
+                    <div class="col-lg-3">
+                      <div class="col-lg-9 input-full-width atk-form-row atk-form-field">{$hsn_no}</div>
+                  </div>  
+                </div>
+                </div>  
+              </div>{/}
+              <div id="tab-Attribute" class="tab-pane">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="main-box clearfix">
+                    <div class="tabs-wrapper profile-tabs">
+                      <ul class="nav nav-tabs responsive-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-Specification">Specification</a></li>
+                        <li><a data-toggle="tab" href="#tab-CustomField">CustomField</a></li>
+                        <li><a data-toggle="tab" href="#tab-Filter">Filter</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="tab-Specification" class="tab-pane fade in active">
+                          {$specification_value_form}
+                          {$specification}
+                        </div>
+                        <div id="tab-CustomField" class="tab-pane">{$customfield}</div>
+                        <div id="tab-Filter" class="tab-pane">{$filter}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-QtyPrice" class="tab-pane">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="main-box clearfix">
+                    <div class="tabs-wrapper profile-tabs">
+                      <ul class="nav nav-tabs responsive-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-basic-pice">Basic Price</a></li>
+                        <li><a data-toggle="tab" href="#tab-qty-set-contition">Rate Chart</a></li>
+                        <li><a data-toggle="tab" href="#tab-shipping-association">Shipping Rule</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="tab-basic-pice" class="tab-pane fade in active">{qty_price_detail}
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <header class="main-box-header clearfix">
+                                <h2>Price & Quantity</h2>
+                              </header>
+                              <div class="main-box-body clearfix">
+                                <div class="row">
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Sales Price: </strong>
+                                  </div>
+                                  <div class="col-lg-3"> {sale_price}{/}</div>
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Original Price: </strong>
+                                  </div>
+                                  <div class="col-lg-3">{original_price}{/}</div>
+                                </div>
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-3">
+                                    <label></label><strong>Min Order Quantity:</strong>
+                                  </div>
+                                  <div class="col-lg-3"> {minimum_order_qty}{/}</div>
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Max Order Quantity: </strong>
+                                  </div>
+                                  <div class="col-lg-3 atk-form-row atk-form-field"> {maximum_order_qty}{/}</div>
+                                </div>
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Quantity Unit:</strong>
+                                  </div>
+                                  <div class="col-lg-3"> {$qty_unit}{qty_unit_id}{/}</div>
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Qty From Set Only:</strong>
+                                  </div>
+                                  <div class="col-lg-3">
+                                    <div class="checkbox-nice">{$qty_from_set_only}</div>
+                                  </div>
+                                </div>
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-3">
+                                    <label> </label><strong>Weight:</strong>
+                                  </div>
+                                  <div class="col-lg-3">{$weight}</div>
+                                  <div class="col-lg-3">
+                                    <label></label><strong>Quantity Group:</strong>
+                                  </div>
+                                  <div class="col-lg-3">{$quantity_group}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>{/}
+                        </div>
+                        <div id="tab-qty-set-contition" class="tab-pane">{$qtysetcondition}</div>
+                        <div id="tab-shipping-association" class="tab-pane">{$shippingassociation}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-Category" class="tab-pane">
+                {category}{/}
+                {$cat_asso_form}
+              </div>
+              <div id="tab-Extra" class="tab-pane">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="main-box clearfix">
+                    <div class="tabs-wrapper profile-tabs">
+                      <ul class="nav nav-tabs responsive-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-Media">Media</a></li>
+                        <li><a data-toggle="tab" href="#tab-SEO">SEO</a></li>
+                        <li><a data-toggle="tab" href="#tab-updatechild">Update Child Item</a></li>
+                        <li><a data-toggle="tab" href="#tab-misc">Misc</a></li>
+                        <li><a data-toggle="tab" href="#tab-serial">Serial No List</a></li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="tab-Media" class="tab-pane fade in active">{$media}</div>
+                        <div id="tab-SEO" class="tab-pane">{seo}
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="clearfix">
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                      <label> </label><strong>Meta Title:</strong>
+                                    </div>
+                                    <div class="col-lg-8 atk-form-row atk-form-field"> {meta_title} $600 {/}</div>
+                                  </div>
+                                </div>
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                      <label> </label><strong>Meta Decription:</strong>
+                                    </div>
+                                    <div class="col-lg-8 atk-form-row atk-form-field"> {meta_description} $7000000000 {/}</div>
+                                  </div>
+                                </div>
+                                <div class="xepan-push"></div>
+                                <div class="row">
+                                  <div class="col-lg-12">
+                                    <div class="col-lg-4">
+                                      <label> </label><strong>Tags:</strong>
+                                    </div>
+                                    <div class="col-lg-8 atk-form-row atk-form-field"> {tags} 70000000000 {/}</div>
+                                  </div>
+                                </div>
+                                <div class="xepan-push"></div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-12"><a href="#" class="btn btn-primary pull-right"> Update</a></div>
+                              </div>
+                            </div>
+                          </div>{/}
+                        </div>
+                        <div id="tab-updatechild" class="tab-pane clearfix">
+                          <div class="row col-md-12">
+                            {$update_child_info}
+                            {$update_form}
+                            {$replica_form}
+                          </div>
+                        </div>
+                        <div id="tab-misc" class="tab-pane clearfix">
+                          <div class="row col-md-12">{$misc_content}</div>
+                        </div>
+                        <div id="tab-serial" class="tab-pane clearfix">
+                          <div class="row col-md-12">{$serializable}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-ProductionPhase" class="tab-pane">
+                {$department}  
+                {$item_dept_asso_form}
+              </div>
+              <div id="tab-Accounts" class="tab-pane">
+                <div class="main-box clearfix">
+                  <div class="tabs-wrapper profile-tabs">
+                    <ul class="nav nav-tabs responsive-tabs">
+                      <li class="active"><a data-toggle="tab" href="#tab-account-tax">Taxation</a></li>
+                      <li><a data-toggle="tab" href="#tab-account-nominal">Nominal</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id="tab-account-tax" class="tab-pane active fade in">{$taxation}</div>
+                      <div id="tab-account-nominal" class="tab-pane fade in">{$nominal}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

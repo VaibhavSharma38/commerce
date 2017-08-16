@@ -1,0 +1,23 @@
+div(id="{$_name}" class="{$class} xepan-addtocartbutton-multi-step-wizard" style="{$style}")
+	{amount_section}
+	div.xshop-item.inner-multi-step-form-amount
+		div.item-amount-header(style="float:left;") Amount:
+		div.xepan-commerce-tool-item-sale-price(style="margin-left:65px;") &nbsp;0
+		div.xepan-commerce-tool-item-original-price
+		span Shipping Charge: 
+			div.xepan-commerce-tool-item-shipping-charge
+	{/amount_section}
+	{$Content}
+	style.
+		.xepan-addtocartbutton-multi-step-wizard legend { font-size:18px; margin:0px; padding:10px 0px; color:#b0232a; font-weight:bold;}
+		.xepan-addtocartbutton-multi-step-wizard label { display:block; margin:15px 0 5px;}
+		.xepan-addtocartbutton-multi-step-wizard .prev, .xepan-addtocartbutton-multi-step-wizard .next { background-color:#b0232a; padding:5px 10px; color:#fff; text-decoration:none;}
+		.xepan-addtocartbutton-multi-step-wizard .prev:hover,.xepan-addtocartbutton-multi-step-wizard .next:hover { background-color:#000; text-decoration:none;}
+		.xepan-addtocartbutton-multi-step-wizard .prev { float:left;}
+		.xepan-addtocartbutton-multi-step-wizard .next { float:right;}
+		.xepan-addtocartbutton-multi-step-wizard .steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
+		.xepan-addtocartbutton-multi-step-wizard .steps li {font-size:24px; float:left; padding:10px; color:#b0b1b3;}
+		.xepan-addtocartbutton-multi-step-wizard .steps li span {font-size:11px; display:block;}
+		.xepan-addtocartbutton-multi-step-wizard .steps li.current { color:#000;}
+		.xepan-addtocartbutton-multi-step-wizard #makeWizard { background-color:#b0232a; color:#fff; padding:5px 10px; text-decoration:none; font-size:18px;}
+		.xepan-addtocartbutton-multi-step-wizard #makeWizard:hover { background-color:#000;}

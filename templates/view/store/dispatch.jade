@@ -1,0 +1,102 @@
+.xepan-grid.main-box.clearfix.atk-table.atk-table-zebra.atk-table-bordered(id='{$_name}', class='{$class}')
+  | {Pannel}
+  header.main-box-header.clearfix.atk-actions(class='{$class}')
+    .filter-block(style='100%')
+      .pull-right {$grid_buttons} 
+      .form-group.pull-right.xepan-filter-form
+        span.form-control.pull-left
+          | {$quick_search}
+          i.fa.fa-search.search-icon
+  | {/Pannel}
+  .main-box-body.clearfix.table-responsive
+    table.table.user-list.table-hover(style='width:100%')
+      | {header}
+      thead.xepan-hover-hand
+        | {cols}{col}
+        th(id='{$qsp_master_id_sortid}')
+          span Order
+        th(id='{$name_sortid}')
+          span Item
+        th
+          span Detail
+        th
+          span Due Quantity
+        th
+          span
+        {/}{/}
+      | {/}
+      |       {$subheader}
+      tbody
+        | {rows}{row}
+        tr(data-id='{$id}', class='{$odd_even}')
+          | {cols}
+          td
+            a.do-dispatch-order-detail-view(href='#', data-related-document-id='{$qsp_master_id}') {$sale_order_no}
+              br
+              small {$customer}
+              small.label.label-primary {$from_warehouse}
+          td
+            | {$name}
+            br
+            div
+              div
+                h4
+                  a.accordion-toggle.collapsed(data-toggle="collapse" data-parent="#accordion{$id}" href="#collapseOne{$id}") Custom Field
+              div(id="collapseOne{$id}" class="collapse" style="height: 0px;")
+                div.panel-body
+                  {$extra_info}
+          td
+            .row
+              .col-md-5 Order Quantity
+              .col-md-7(style="font-weight:bold;") {$quantity} {$qty_unit}
+            hr(style="margin:5px;")
+            .row
+              .col-md-5 Base Unit
+              .col-md-7 {$item_qty_unit}
+            .row
+              .col-md-5 Order Unit
+              .col-md-7 {$qty_unit}
+            hr(style="margin:5px;")
+            .row
+              .col-md-5 Under Process
+              .col-md-7 
+                span(style="font-weight:bold") {$order_unit_based_toreceived_quantity} {$qty_unit} 
+                | = {$toreceived_quantity} {$item_qty_unit}
+            .row
+              .col-md-5 Received Quantity
+              .col-md-7
+                span(style="font-weight:bold") {$order_unit_based_received_quantity} {$qty_unit} 
+                | =  {$received_quantity} {$item_qty_unit}
+            .row
+              .col-md-5 Shipped Quantity 
+              .col-md-7
+                span(style="font-weight:bold") {$order_unit_based_shipped_quantity} {$qty_unit} 
+                | = {$shipped_quantity} {$item_qty_unit}
+            .row
+              .col-md-5 Delivered Quantity 
+              .col-md-7 
+                span(style="font-weight:bold") {$order_unit_based_delivered_quantity} {$qty_unit} 
+                | = {$delivered_quantity} {$item_qty_unit}
+
+          td(style="text-align:center;")
+            div(title="Quantity in order unit") {$order_unit_based_due_quantity} {$qty_unit}
+            div = 
+            div(title="Quantity in base unit") {$due_quantity} {$item_qty_unit}
+          td
+            | {$action}
+          | {/}
+        | {/}{/}
+        |         {not_found}
+        .row
+          .col-md-12.text-center.alert.alert-warning(role='alert')
+            span.icon-attention.fa.fa-exclamation-triangle   {$not_found_message}
+        | {/}
+      | {totals}
+      tfoot
+        tr.totals
+          | {cols}{col}
+          td({$tdparam}='')
+            | {$content}
+          |           {/}{/}
+      | {/}
+    | {$Paginator}

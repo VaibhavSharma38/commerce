@@ -1,0 +1,64 @@
+.xepan-grid.main-box.clearfix.atk-table.atk-table-zebra.atk-table-bordered(id="{$_name}" class="{$class}")
+    {Pannel}
+    header.main-box-header.clearfix.atk-actions(class=" {$class} ")
+        div.filter-block( style="100%")
+            .pull-right {$grid_buttons} 
+            .form-group.pull-right.xepan-filter-form
+                span(class="form-control pull-left")|{$quick_search}
+                    i(class="fa fa-search search-icon")
+    {/Pannel}
+    .main-box-body.clearfix.table-responsive
+        table.table.user-list.table-hover.footable.toggle-circle-filled(style="width:100%")
+            {header}
+            thead.xepan-hover-hand
+                {cols}{col}
+                th
+                th(id="{$from_warehouse_sortid}")
+                    span(style= "cursor:pointer; cursor: hand; max-width:600px;") From {$from_warehouse_sort}
+                th(id="{$to_warehouse_sorid}")
+                    span(style= "cursor:pointer; cursor: hand; max-width:600px;") To {$to_warehouse_sort}
+                th(id="{$related_document_sortid}" data-hide="phone")
+                    span(style= "cursor:pointer; cursor: hand; max-width:600px;") Related Document {$related_document_id_sort}
+                th(id="{$document_type_sortid}" data-hide="phone")
+                    span(style= "cursor:pointer; cursor: hand; max-width:600px;") Document Type {$document_type_sort}
+                th 
+                {/}{/}
+            {/}
+            {$subheader}
+
+            tbody
+                {rows}{row}
+                tr(class="{$odd_even}" data-id="{$id}")
+                    {cols}
+                    td
+                      | {$selected}
+                    td
+                      | {$from_warehouse}
+                    td
+                      | {$to_warehouse}
+                    td
+                        | {$related_document_id}
+                    td
+                        | {$document_type}
+                    td(style="width: 15%;")
+                        {$edit}
+                        {$delete}
+                    
+                    {/}
+                {/}{/}
+                {not_found}
+                div.row
+                    .col-md-12.text-center.alert.alert-warning(role="alert")
+                        span.icon-attention.fa.fa-exclamation-triangle  &nbsp;{$not_found_message}
+                {/}
+
+            {totals}
+            tfoot
+                tr(class="totals")
+                    {cols}{col}
+                    <td {$tdparam}>
+                    {$content}
+                    </td>
+                    {/}{/}
+            {/}
+        {$Paginator}

@@ -1,0 +1,38 @@
+div(id="{$_name}" class="{$class}")
+    {header}
+    {cols}{col}
+    {/}{/}
+    {/}
+    {$subheader}
+    {rows}{row}
+    .row
+        {cols}
+        ul.chat.message_template
+            li.clearfix.message(class="{$side}" style="width:80%; max-width:80%; background-color:#EAEAEA; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; -khtml-border-radius: 10px;")
+                div
+                    p.text(style="font-size:15px; padding:5px; margin-left:14px !important; margin-right:14px !important;") {$message}
+        {/}
+    {/}{/}
+    {not_found}
+    div.row
+            span {$not_found_message}
+    {/}
+
+    {totals}
+    tfoot
+        tr(class="totals")
+            {cols}{col}
+            <td {$tdparam}>
+            {$content}
+            </td>
+            {/}{/}
+    {/}
+{$Paginator}
+
+
+style.
+    .chat li
+    {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }

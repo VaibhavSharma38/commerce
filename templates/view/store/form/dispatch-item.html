@@ -1,0 +1,121 @@
+
+<div id="{$_name}" class="{$class} dispatch_form">{$Content}
+  <table style="width:100%" class="table user-list table-hover">
+    <thead>
+      <th><span>Select</span></th>
+      <th><span>Item</span></th>
+      <th><span>Received Qty</span></th>
+      <th><span>Delivered Qty</span></th>
+      <th><span>Due Qty</span></th>
+      <th><span>Quantity To Deliver</span></th>
+      <th><span>Serializable Item list</span></th>
+      <th></th>
+    </thead>
+    <tbody></tbody>{$item_to_deliver}
+  </table>
+  <div class="atk-box-large atk-swatch-ink atk-push-reset atk-shape-rounded-top">
+    <div class="col-lg-12">
+      <div class="main-box">
+        <div class="main-box-body clearfix">
+          <form>
+            <div style="display:none;" class="form-group row">
+              <div class="col-md-12 col-lg-12">
+                <div id="{$_name}" class="xepan-grid atk-table atk-table-zebra atk-table-bordered {$class}"></div>{$header}
+              </div>
+            </div>
+            <div style="display:none;" class="form-group row">
+              <div class="col-md-12 col-lg-12">
+                <div id="{$_name}" class="xepan-grid atk-table atk-table-zebra atk-table-bordered {$class}"></div>{$select_item}
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-lg-6"><span>Delivery Via</span>
+                <div class="atk-form-row atk-form-field">{$delivery_via}</div>
+              </div>
+              <div class="col-md-6 col-lg-6"><span>Docket No /Person Name / Other Reference</span>
+                <div class="atk-form-row atk-form-field">{$delivery_docket_no}</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-lg-6"><span>Shipping Address</span>
+                <div class="atk-form-row atk-form-field">{$shipping_address}</div>
+              </div>
+              <div class="col-md-6 col-lg-6"><span>Delivery Narration</span>
+                <div class="atk-form-row atk-form-field">{$delivery_narration}</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-lg-6">
+                <div class="atk-form-row atk-form-field">{$send_document}</div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="atk-form-row atk-form-field">{$print_document}	</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-4 col-lg-6"><span>Tracking Code</span>
+                <div class="atk-form-row atk-form-field">{$tracking_code}</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-4 col-lg-4">
+                <div class="atk-form-row atk-form-field">{$bank_account_detail}</div>
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <div class="atk-form-row atk-form-field">{$cheque_no}</div>
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <div class="atk-form-row atk-form-field">{$cheque_date}</div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-6 col-lg-6">
+                <div class="atk-form-row atk-form-field">{$complete_on_receive}</div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="atk-form-row atk-form-field">{$include_barcode}</div>
+              </div>
+            </div>
+            <div class="form-group row atk-form-row">
+              <div class="col-md-12 col-lg-12">
+                <div class="atk-form-row atk-form-field">From Email : {$from_email}</div>
+              </div>
+            </div>
+            <div class="form-group row atk-form-row">
+              <div class="col-md-12 col-lg-12">{$signature}</div>
+            </div>
+            <div class="form-group row atk-form-row">
+              <div class="col-md-12 col-lg-12">
+                <div class="atk-form-row atk-form-field">Email To : {$email_to}</div>
+              </div>
+            </div>
+            <div class="form-group row atk-form-row">
+              <div class="col-md-12 col-lg-12">
+                <div class="atk-form-row atk-form-field">Subject : {$subject}</div>
+              </div>
+            </div>
+            <div class="form-group row atk-form-row">
+              <div class="col-md-12 col-lg-12">
+                <div class="atk-form-row atk-form-field">Message : {$message}</div>
+              </div>
+            </div>
+          </form>
+          <div class="xepan-push-large"></div>
+          <div class="xepan-push-large"></div>
+          <div class="atk-align-center h-lines"><span class="h-lines-wrap"></span><a class="atk-swatch-tomato atk-button-large atk-col-5 w-shadow action-large">
+              						
+              {$FormButtons}</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .atk-form-row .select2{
+  	width:100%!important;
+  }
+  
+  .dispatch_form textarea{
+  	height:50px;
+  }
+</style>

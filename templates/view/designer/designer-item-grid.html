@@ -1,0 +1,34 @@
+
+<div id="{$_name}" class="xshop-designer-image-lister xepan-grid main-box clearfix {$class}">
+  {$Content}
+  {Pannel}
+  <header class="main-box-header clearfix atk-actions  {$class} ">
+    <div style="position:relative;" class="clearfix">
+      <div style="height:350px;" class="row">
+        <div class="col-lg-12">
+          <div style="display:none;" class="xepan-designer-images-addimagebutton">{$grid_buttons}</div>
+          <div class="pull-right">{$quick_search}</div>{header}{cols}{col}{/}{/}{/}
+          <div data-id="{$id}" class="xshop-designer-itemimageslister row {$odd_even}">
+            {rows}
+            {row}
+            {cols}
+            <figure style="padding-bottom:10px;text-align:center;" class="xshop-designer-item-images col-md-3 col-sm-3"><img src="{image}{/}" style="height:100px; max-width:100%; overflow:hidden;" class="xshop-designer-item-images"/>
+              <figcaption class="xshop-designer-add-replace">
+                <div selectedimagesrc="{$image}" data-image-id="{$id}" class="xshop-designer-add-replace-button btn btn-primary btn-sm">Insert</div>
+                <!-- <div class="xshop-designer-remove-member-image-button btn btn-primary" data-image-id="{$id}" img-no-of-time-used="{$img_used_no_of_time}">Remove</div>-->{$edit}
+                {$delete}
+              </figcaption>
+            </figure>	    {/}
+            		{/}	
+            	{/}
+            	{not_found}
+            <div>
+              <div class="atk-padding-large atk-align-center"><span class="atk-label atk-effect-warning"><span class="icon-attention">{$not_found_message}</span></span></div>
+            </div>    {/}
+          </div>
+        </div>
+        <div class="text-center xepan-designer-lister-images-paginator">{$Paginator}</div>
+      </div>
+    </div>
+  </header>
+</div>

@@ -1,0 +1,83 @@
+#user-profile
+  .col-lg-12.col-md-12.col-sm-12
+    {$contact_view_full_width}
+  .col-lg-3.col-md-4.col-sm-4
+     {$contact_view}
+  {details}
+  .col-lg-9.col-md-8.col-sm-8
+    .main-box.clearfix
+      .tabs-wrapper.profile-tabs
+        ul.nav.nav-tabs.responsive-tabs
+          li.active
+            a(data-toggle='tab', href='#tab-BasicInfo') Supplier Info
+          li
+            a(data-toggle='tab', href='#tab-Orders') Orders
+          li
+            a(data-toggle='tab', href='#tab-Invoice') Invoice
+          li
+            a(data-toggle='tab', href='#tab-Activity') Activity
+        .tab-content
+          #tab-BasicInfo.tab-pane.active
+            #BasicInfo
+            | {basic_info}
+            .col-lg-12
+              .main-box.clearfix
+                header.main-box-header.clearfix
+                  h1 {$organization}
+                  .row
+                    .col-lg-12
+                      .main-box
+                        header.main-box-header.clearfix
+                          h2 Legal Information:
+                        .main-box-body.clearfix
+                          .row.xepan-push
+                            .col-lg-3
+                              strong Tin Number:
+                              div {$tin_no}
+                            .col-lg-1
+                            .col-lg-3
+                              strong Pan Number:
+                              div {$pan_no}
+                            .col-lg-1
+                            .col-lg-3
+                              strong Currency:
+                              div {$currency}{$currency_id}
+                  .row
+                    .col-lg-12
+                      .main-box
+                        header.main-box-header.clearfix
+                          h2 Contact Address:
+                        .main-box-body.clearfix
+                          .row.xepan-push
+                            .col-lg-12
+                              strong Address:
+                          .row.xepan-push
+                            .col-lg-12  
+                              {$address}
+                          .row.xepan-push  
+                            .col-lg-3
+                              strong Country:
+                              div {$country}{$country_id}
+                            .col-lg-3
+                              strong State:
+                              div {$state}{$state_id}
+                            .col-lg-3
+                              strong City:
+                              div {$city}
+                            .col-lg-3
+                              strong Pin Code:
+                              div {$pin_code}
+                  .row
+                    .col-lg-12
+                      .main-box
+                        .main-box-body.clearfix
+                          strong Remarks
+                          div.atk-form-row.atk-form-field  {$remark}              
+            | {/}
+          #tab-Orders.tab-pane
+            {$orders}
+          #tab-Invoice.tab-pane
+            {$invoices}
+          #tab-Activity.tab-pane
+            {$activity}
+  {/}

@@ -1,0 +1,45 @@
+.modal.fade.hidden-xs.hidden-sm(id='{$_name}_card_model', tabindex='-1', role='dialog', aria-labelledby='{$_name}_model_label')
+  .modal-dialog(role='document')
+    .modal-content(style="background-image: url({$image}); min-height:650px !important; max-height:650px; overflow:hidden;")
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true' style="font-size: 35px; font-weight : bold; margin-right:10px; color: #000 !important;") ×	
+      .modal-body 
+        .row
+          .col-md-12.col-lg-12.col-sm-12.col-xs-12  
+            .row
+              .col-md-12.col-lg-12.col-sm-12.col-xs-12
+                div(style ="margin-top:546px;")
+                  {$form}
+
+
+  script.
+    $('\#{$_name}_card_model').on('show.bs.modal', function (e) {
+      if (window.innerWidth < 800) {
+        return e.preventDefault();
+      }
+    });
+
+
+style.
+
+ .modal-dialog{
+  width: 800px;
+ }
+
+ .modal-body{
+  padding-top :0px !important;
+ } 
+
+ .close {
+  opacity : 0px !important;
+ }
+
+ @media screen and (max-width: 600px) {
+  .modal-backdrop{
+    display :none !important;
+  }
+  .modal.fade{
+    visibility: hidden;
+    display: none;
+  }}

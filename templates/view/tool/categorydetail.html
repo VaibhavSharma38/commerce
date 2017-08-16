@@ -1,0 +1,22 @@
+
+{$Content}
+{root_wrapper}
+<div id="{$_name}" style="{$style}" class="{$class}">
+  <div class="col-md-12 col-sm-12">{image_wrapper}
+    <div class="category-image"><img src="{$cat_image}" alt=""/></div>{/}
+    <div class="category-information">{name_wrapper}
+      <h1> <a href="{$url}">{$name}</a></h1>{/}
+      {description_wrapper}  
+      <p>{$category_description}</p>{/}
+    </div>{counts}    
+    {price_wrapper}
+    <div class="row">
+      Minimum-price: {$min_price}
+      Maximum-price: {$max_price}
+    </div>{/}  
+    <div></div>{item_count_wrapper}  
+    Item-count: {$website_display_item_count}
+    {/}
+    {/}
+  </div>
+</div>{/}    

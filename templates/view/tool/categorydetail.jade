@@ -1,0 +1,28 @@
+{$Content}
+{root_wrapper}
+div( id="{$_name}" class="{$class}" style="{$style}")
+  .col-md-12.col-sm-12
+    {image_wrapper}
+    .category-image
+      img(src='{$cat_image}', alt='')
+    {/}
+    .category-information
+      {name_wrapper}
+      h1 
+        a(href="{$url}") {$name}
+      {/}
+      {description_wrapper}  
+      p {$category_description}
+      {/}
+    {counts}    
+    {price_wrapper}
+    .row
+      |Minimum-price: {$min_price}
+      |Maximum-price: {$max_price}
+    {/}  
+    div
+    {item_count_wrapper}  
+    |Item-count: {$website_display_item_count}
+    {/}
+    {/}
+{/}    

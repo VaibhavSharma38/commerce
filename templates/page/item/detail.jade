@@ -1,0 +1,508 @@
+.row(style='opacity: 1;')
+  .col-lg-12
+    #user-profile.row
+      .col-lg-3.col-md-4.col-sm-4
+        .main-box.clearfix
+          {view_info}
+          header.main-box-header.clearfix
+            h2.atk-form-field.atk-form-row {name} {/}
+          .main-box-body.clearfix
+            .profile
+              small
+                |  {stock_available} Availabe In Stock {/}
+            img.img-responsive.center-block(alt='', src='{$first_image}')
+            .profile-label
+              span.label.label-info {type}{/}
+            .profile-stars
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star-o
+            .profile-since Added in List: {created_at} created at {/}
+            .profile-details
+              ul.fa-ul
+                li
+                  i.fa-li.fa.fa-truck
+                  | Orders: 
+                  span {total_orders} 0 {/}
+                li
+                  i.fa-li.fa.fa-shopping-cart
+                  | Sold: 
+                  span {total_sales} 0 {/}
+            .profile-message-btn.center-block.text-center(style="display:none;")
+              a.btn.btn-success(href='#')
+                i.fa.fa-edit
+                | Edit
+            {/}
+      .col-lg-9.col-md-8.col-sm-8
+        .main-box.clearfix
+          .tabs-wrapper.profile-tabs
+            ul.nav.nav-tabs.responsive-tabs
+              li.active
+                a(data-toggle='tab', href='#tab-Basic') Basic
+              li
+                a(data-toggle='tab', href='#tab-Attribute') Attribute
+              li
+                a(data-toggle='tab', href='#tab-QtyPrice') Qty&Price
+              li
+                a(data-toggle='tab', href='#tab-Category') Category
+              li
+                a(data-toggle='tab', href='#tab-Extra') Extra
+              li
+                a(data-toggle='tab', href='#tab-ProductionPhase') Production Phase
+              li
+                a(data-toggle='tab', href='#tab-Accounts') Accounts
+            .tab-content
+              #tab-Basic.tab-pane.active
+                | {basic_info}
+                .row
+                  .col-lg-12
+                    .main-box.clearfix
+                      header.main-box-header.clearfix
+                        h2 
+                      .main-box-body.clearfix
+                        .row
+                          .col-sm-3
+                            label  
+                            strong Name:
+                            .xepan-push-small
+                          .col-lg-3.atk-form-row.atk-form-field  {name} Wedding Cards {/}
+                            .xepan-push-small
+                          .col-sm-3
+                            label  
+                            strong Code:
+                            .xepan-push-small
+                          .col-lg-3.atk-form-row.atk-form-field  {sku} W1001 {/}
+                        .xepan-push
+                        .row
+                          .col-lg-3
+                            label
+                            strong Status:
+                            .xepan-push-small
+                          .col-lg-3.atk-form-row.atk-form-field {status}Publish{/}
+                            .xepan-push-small
+                          .col-lg-3
+                            label  
+                            strong Date:
+                            .xepan-push-small
+                          .col-lg-3.atk-form-row.atk-form-field  {expiry_date} 25-2-2016 {/}
+                        .xepan-push
+                        .row
+                          .col-lg-3
+                            label 
+                            strong Description:
+                            .xepan-push-small
+                          .col-lg-9.atk-form-row.atk-form-field {description} This Item to be sold. {/}
+                        .xepan-push
+                        .row
+                          .col-lg-3
+                          .col-lg-3.atk-form-row.atk-form-field
+                            .checkbox-nice
+                              | {is_template}
+                              | {/}
+                          .col-lg-3
+                          .col-lg-3.atk-form-row.atk-form-field
+                            .checkbox-nice
+                              {$is_designable}
+                        .xepan-push
+                        .row
+                          .col-lg-4.atk-form-row.atk-form-field
+                            strong Template: <br/>
+                            {$duplicate_from_item_id}
+                          .col-lg-4.atk-form-row.atk-form-field
+                            strong Designer:<br/>
+                            {$designer}{$designer_id}
+                          .col-lg-4.atk-form-row.atk-form-field
+                            strong To Customer:<br/>
+                            {$to_customer_id}  
+                    .row
+                      .col-lg-12
+                        .main-box
+                          header.main-box-header.clearfix
+                            h2 Item Type
+                          .main-box-body.clearfix
+                            .row
+                              .col-lg-3.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_saleable}
+                                  | {/}
+                              .col-lg-3.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_purchasable}
+                                  | {/}
+                              .col-lg-3.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_productionable}
+                                  | {/}
+                              .col-lg-3.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_allowuploadable}
+                                  | {/}
+                              .col-lg-3.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {$is_serializable}
+                    .row
+                      .col-lg-12
+                        .main-box
+                          header.main-box-header.clearfix
+                            h2 Renewable Item
+                          .main-box-body.clearfix
+                            .row.xepan-push-small
+                              .col-lg-6.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_renewable}
+                                  | {/}
+                              .col-lg-2.atk-form-row.atk-form-field
+                                strong Remind To:
+                              .col-lg-4.atk-form-row.atk-form-field  
+                                | {remind_to}
+                                | {/}
+                            .row      
+                              .col-lg-2
+                                strong Value:
+                              .col-lg-4.atk-form-row.atk-form-field
+                                | {renewable_value}
+                                | {/}
+                              .col-lg-2
+                                strong Unit:
+                              .col-lg-4.atk-form-row.atk-form-field  
+                                | {renewable_unit}
+                                | {/}              
+                    .row
+                      .col-lg-12
+                        .main-box
+                          header.main-box-header.clearfix
+                            h2 Item Stock Info
+                          .main-box-body.clearfix
+                            .row
+                              .col-lg-4.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {maintain_inventory}
+                                  | {/}
+                              .col-lg-4.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {allow_negative_stock}
+                                  | {/}
+                              .col-lg-4.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_dispatchable}
+                                  | {/}
+                            .row
+                              .col-lg-4.atk-form-row.atk-form-field
+                                .checkbox-nice
+                                  | {is_teller_made_item}
+                                  | {/} 
+                               .col-md-4
+                                  strong Stock Minimum Limit : 
+                               .col-lg-4.atk-form-row.atk-form-field
+                                  | {minimum_stock_limit}
+                                  | {/} 
+                .row
+                  .col-lg-12
+                    .main-box.clearfix
+                      header.main-box-header.clearfix
+                        h2 {$website_display}
+                      .main-box-body.clearfix#website_display
+                        .row
+                          .col-lg-12
+                            .main-box
+                              header.main-box-header.clearfix
+                                h2 Item Display Option
+                              .main-box-body.clearfix
+                                .row
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {show_detail}
+                                      | {/}
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {show_price}
+                                      | {/}
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {is_visible_sold}
+                                      | {/}
+                        .row
+                          .col-lg-12
+                            .main-box
+                              header.main-box-header.clearfix
+                                h2 Marked Option
+                              .main-box-body.clearfix
+                                .xepan-push
+                                .row
+                                  .col-lg-3.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {is_new}
+                                      | {/}
+                                  .col-lg-3.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {is_feature}
+                                      | {/}
+                                  .col-lg-3.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {is_mostviewed}
+                                      | {/}
+                                  .col-lg-3.atk-form-row.atk-form-field
+                                    {display_sequence} 5 {/}
+                                    small.pull-left(style="width:80%") Display Sequence
+                        .row
+                          .col-lg-12
+                            .main-box
+                              header.main-box-header.clearfix
+                                h2 Enquiry Option
+                              .main-box-body.clearfix
+                                .row
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {is_enquiry_allow}
+                                      | {/}
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {enquiry_send_to_admin}
+                                      | {/}
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {item_enquiry_auto_reply}
+                                      | {/}
+                        .row
+                          .col-lg-12
+                            .main-box
+                              header.main-box-header.clearfix
+                                h2 Item Comment Option
+                              .main-box-body.clearfix
+                                .row
+                                  .col-lg-4.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {is_comment_allow}
+                                      | {/}
+                                  .col-lg-2
+                                    label  
+                                    strong Comment:
+                                  .col-lg-6.atk-form-row.atk-form-field  {comment_api} This Product is Genuine. {/}
+                        .row
+                          .col-lg-12
+                            .main-box
+                              header.main-box-header.clearfix
+                                h2 Item Other Option
+                              .main-box-body.clearfix
+                                .row
+                                  .col-lg-12.atk-form-row.atk-form-field
+                                    .checkbox-nice
+                                      | {add_custom_button}
+                                      | {/}
+                                .xepan-push
+                                .row
+                                  .col-lg-4
+                                    label  
+                                    strong Custom Button Label:
+                                    .xepan-push-small
+                                  .col-lg-2.input-full-width.atk-form-row.atk-form-field 
+                                    | {custom_button_label} Ipad {/}
+                                    .xepan-push-small
+                                  .col-lg-3
+                                    label  
+                                    strong Custom Button Url:
+                                    .xepan-push-small
+                                  .col-lg-3.input-full-width.atk-form-row.atk-form-field
+                                    | {custom_button_url} www.ios.com {/}
+                    .row
+                      .col-lg-12
+                        .main-box
+                          header.main-box-body.clearfix
+                            .xepan-push
+                            .row
+                              .col-lg-3
+                                label  
+                                strong Terms & Condition:
+                              .col-lg-9.atk-form-row.atk-form-field  {terms_and_conditions} This Item have not replacement warranty. {/}
+                .row
+                  .col-lg-12
+                    .main-box
+                      header.main-box-body.clearfix
+                        .row.xepan-push
+                          .col-lg-3
+                            label
+                            strong Upload File Lables:
+                          .col-lg-9.input-full-width.atk-form-row.atk-form-field
+                                {$upload_file_label}
+                            span Comma separated multiple file name, ex.file_name_1:mandatory, file_name_2, file_name_3:mandatory, file_name_4
+                        .row
+                          .col-lg-3
+                            label
+                            strong Upload file hint:
+                          .col-lg-9.input-full-width.atk-form-row.atk-form-field
+                              {$item_specific_upload_hint}
+                        .row
+                          .col-lg-3
+                            label
+                            strong Upload file Group:
+                          .col-lg-9.input-full-width.atk-form-row.atk-form-field
+                              {$upload_file_group}
+
+              | {/}
+              #tab-Attribute.tab-pane
+                .col-lg-12.col-md-12.col-sm-12
+                  .main-box.clearfix
+                    .tabs-wrapper.profile-tabs
+                      ul.nav.nav-tabs.responsive-tabs
+                        li.active
+                          a(data-toggle='tab', href='#tab-Specification') Specification
+                        li
+                          a(data-toggle='tab', href='#tab-CustomField') CustomField
+                        li
+                          a(data-toggle='tab', href='#tab-Filter') Filter
+                      .tab-content
+                        #tab-Specification.tab-pane.fade.in.active
+                          {$specification_value_form}
+                          {$specification}
+                        #tab-CustomField.tab-pane
+                          {$customfield}
+                        #tab-Filter.tab-pane
+                          {$filter}
+              #tab-QtyPrice.tab-pane
+                .col-lg-12.col-md-12.col-sm-12
+                  .main-box.clearfix
+                    .tabs-wrapper.profile-tabs
+                      ul.nav.nav-tabs.responsive-tabs
+                        li.active
+                          a(data-toggle='tab', href='#tab-basic-pice') Basic Price
+                        li
+                          a(data-toggle='tab', href='#tab-qty-set-contition') Rate Chart
+                        li
+                          a(data-toggle='tab', href='#tab-shipping-association') Shipping Rule
+                      .tab-content
+                        #tab-basic-pice.tab-pane.fade.in.active
+                          {qty_price_detail}
+                          .row
+                            .col-lg-12
+                              header.main-box-header.clearfix
+                                h2 Price & Quantity
+                              .main-box-body.clearfix
+                                .row
+                                  .col-lg-3
+                                    label  
+                                    strong Sales Price: 
+                                  .col-lg-3  {sale_price}{/}
+                                  .col-lg-3
+                                    label  
+                                    strong Original Price: 
+                                  .col-lg-3 {original_price}{/}
+                                .xepan-push
+                                .row
+                                  .col-lg-3
+                                    label
+                                    strong Min Order Quantity:
+                                  .col-lg-3  {minimum_order_qty}{/}
+                                  .col-lg-3
+                                    label  
+                                    strong Max Order Quantity: 
+                                  .col-lg-3.atk-form-row.atk-form-field  {maximum_order_qty}{/}
+                                .xepan-push
+                                .row
+                                  .col-lg-3
+                                    label  
+                                    strong Quantity Unit:
+                                  .col-lg-3  {$qty_unit}{qty_unit_id}{/}
+                                  .col-lg-3
+                                    label  
+                                    strong Qty From Set Only:
+                                  .col-lg-3
+                                    .checkbox-nice {$qty_from_set_only}
+                                .xepan-push
+                                .row
+                                  .col-lg-3
+                                    label  
+                                    strong Weight:
+                                  .col-lg-3
+                                    {$weight}
+                                  .col-lg-3
+                                    label
+                                    strong Quantity Group:
+                                  .col-lg-3
+                                    {$quantity_group}
+                          {/}
+                        #tab-qty-set-contition.tab-pane
+                          {$qtysetcondition}
+                        #tab-shipping-association.tab-pane
+                          {$shippingassociation}
+              #tab-Category.tab-pane
+                {category}{/}
+                {$cat_asso_form}
+              #tab-Extra.tab-pane
+                .col-lg-12.col-md-12.col-sm-12
+                  .main-box.clearfix
+                    .tabs-wrapper.profile-tabs
+                      ul.nav.nav-tabs.responsive-tabs
+                        li.active
+                          a(data-toggle='tab', href='#tab-Media') Media
+                        li
+                          a(data-toggle='tab', href='#tab-SEO') SEO
+                        li
+                          a(data-toggle='tab', href='#tab-updatechild') Update Child Item
+                        li
+                          a(data-toggle='tab', href='#tab-misc') Misc
+                        li
+                          a(data-toggle='tab', href='#tab-serial') Serial No List
+                      .tab-content
+                        #tab-Media.tab-pane.fade.in.active
+                          {$media}
+                        #tab-SEO.tab-pane
+                          | {seo}
+                          .row
+                            .col-lg-12
+                              .clearfix
+                                .xepan-push
+                                .row
+                                  .col-lg-12
+                                    .col-lg-4
+                                      label  
+                                      strong Meta Title:
+                                    .col-lg-8.atk-form-row.atk-form-field  {meta_title} $600 {/}
+                                .xepan-push
+                                .row
+                                  .col-lg-12
+                                    .col-lg-4
+                                      label  
+                                      strong Meta Decription:
+                                    .col-lg-8.atk-form-row.atk-form-field  {meta_description} $7000000000 {/}
+                                .xepan-push
+                                .row
+                                  .col-lg-12
+                                    .col-lg-4
+                                      label  
+                                      strong Tags:
+                                    .col-lg-8.atk-form-row.atk-form-field  {tags} 70000000000 {/}
+                                .xepan-push
+                              .row
+                                .col-lg-12
+                                  a.btn.btn-primary.pull-right(href='#')  Update
+                          | {/}
+
+                        #tab-updatechild.tab-pane.clearfix
+                          .row.col-md-12
+                            {$update_child_info}
+                            {$update_form}
+                            {$replica_form}
+                        #tab-misc.tab-pane.clearfix
+                          .row.col-md-12
+                            {$misc_content}
+                        #tab-serial.tab-pane.clearfix
+                          .row.col-md-12
+                            {$serializable}
+              #tab-ProductionPhase.tab-pane
+                {$department}  
+                {$item_dept_asso_form}
+              #tab-Accounts.tab-pane
+                .main-box.clearfix
+                    .tabs-wrapper.profile-tabs
+                      ul.nav.nav-tabs.responsive-tabs
+                        li.active
+                          a(data-toggle='tab', href='#tab-account-tax') Taxation
+                        li
+                          a(data-toggle='tab', href='#tab-account-nominal') Nominal
+                      .tab-content
+                        #tab-account-tax.tab-pane.active.fade.in
+                          {$taxation}
+                        #tab-account-nominal.tab-pane.fade.in
+                          {$nominal}

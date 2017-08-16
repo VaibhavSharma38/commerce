@@ -1,0 +1,99 @@
+
+<div id="user-profile">
+  <div class="col-lg-12 col-md-12 col-sm-12">{$contact_view_full_width}</div>
+  <div class="col-lg-3 col-md-4 col-sm-4">{$contact_view}</div>{details}
+  <div class="col-lg-9 col-md-8 col-sm-8">
+    <div class="main-box clearfix">
+      <div class="tabs-wrapper profile-tabs">
+        <ul class="nav nav-tabs responsive-tabs">
+          <li class="active"><a data-toggle="tab" href="#tab-BasicInfo">Supplier Info</a></li>
+          <li><a data-toggle="tab" href="#tab-Orders">Orders</a></li>
+          <li><a data-toggle="tab" href="#tab-Invoice">Invoice</a></li>
+          <li><a data-toggle="tab" href="#tab-Activity">Activity</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="tab-BasicInfo" class="tab-pane active">
+            <div id="BasicInfo"></div>{basic_info}
+            <div class="col-lg-12">
+              <div class="main-box clearfix">
+                <header class="main-box-header clearfix">
+                  <h1>{$organization}</h1>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-box">
+                        <header class="main-box-header clearfix">
+                          <h2>Legal Information:</h2>
+                        </header>
+                        <div class="main-box-body clearfix">
+                          <div class="row xepan-push">
+                            <div class="col-lg-3"><strong>Tin Number:</strong>
+                              <div>{$tin_no}</div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-3"><strong>Pan Number:</strong>
+                              <div>{$pan_no}</div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-3"><strong>Currency:</strong>
+                              <div>{$currency}{$currency_id}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-box">
+                        <header class="main-box-header clearfix">
+                          <h2>Contact Address:</h2>
+                        </header>
+                        <div class="main-box-body clearfix">
+                          <div class="row xepan-push">
+                            <div class="col-lg-12"><strong>Address:</strong></div>
+                          </div>
+                          <div class="row xepan-push">
+                            <div class="col-lg-12">
+                               
+                              {$address}
+                            </div>
+                          </div>
+                          <div class="row xepan-push"> 
+                            <div class="col-lg-3"><strong>Country:</strong>
+                              <div>{$country}{$country_id}</div>
+                            </div>
+                            <div class="col-lg-3"><strong>State:</strong>
+                              <div>{$state}{$state_id}</div>
+                            </div>
+                            <div class="col-lg-3"><strong>City:</strong>
+                              <div>{$city}</div>
+                            </div>
+                            <div class="col-lg-3"><strong>Pin Code:</strong>
+                              <div>{$pin_code}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-box">
+                        <div class="main-box-body clearfix"><strong>Remarks</strong>
+                          <div class="atk-form-row atk-form-field"> {$remark}              </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+              </div>
+            </div>{/}
+          </div>
+          <div id="tab-Orders" class="tab-pane">{$orders}</div>
+          <div id="tab-Invoice" class="tab-pane">{$invoices}</div>
+          <div id="tab-Activity" class="tab-pane">{$activity}</div>
+        </div>
+      </div>
+    </div>
+  </div>{/}
+</div>

@@ -1,0 +1,96 @@
+.xepan-commerce-tool-cart(id='{$_name}' class='{$class}')
+  {$Content}
+  {cart_container}
+  ul.manualdropdown
+    li.dropdown.reset-margin.text-center(style="padding:0px;margin:0px;")
+      a.dropdown-toggle.reset-margin(id="{$_name}dropdown" href='#' data-toggle='dropdown' aria-haspopup="true" role='button' aria-expanded='false' style="padding:0px;margin:0px;")
+        span.xepan-commerce-cart-item-count  {total_count}0{/}
+        |  - Items
+        span.caret
+      {lister_wrapper}
+      ul.dropdown-menu.dropdown-cart.xepan-cart.pull-right(role='menu' style='width:400px; background:white;text-align:left;' aria-labelledby="{$_name}dropdown")
+        .scroll-item(margin="10px 20px")
+          {lister}
+          .row(style="margin:10px;")
+            .col-md-8 Item
+            .col-md-3 Amount
+            .col-md-1
+          {rows}{row}
+          .row.xepan-commerce-tool-cart-item-row(id='item-{$id}' style="margin:0;margin-bottom:5px;")
+            .col-md-4
+              {canvas_wrapper}
+              div.image-block( data-width='{$width}' data-height='{$height}' data-trim='{$trim}' data-unit="{$unit}" data-design="{$design}" data-selected_layouts_for_print="{$selected_layouts_for_print}" data-item_id="{$item_id}" data-item_member_design_id="{$item_member_design_id}" data-item_name='{$item_name}' data-base_url="{$base_url}" data-calendar_starting_month="{$calendar_starting_month}" data-calendar_starting_year="{$calendar_starting_year}" data-calendar_event="{$calendar_event}")
+                  div.customer-designer-image(id="canvas-cart-{$uniq_id}" style="width:100px;")
+              {/canvas_wrapper}
+              {image_wrapper}
+              img(alt='{image}{/}' src='{$image_url}' onerror="this.src='vendor/xepan/commerce/templates/view/tool/cart/images/not-found.png'" width="100%;")
+              {/image_wrapper}
+            .col-md-4.short-cart-item-name(style="margin:0px;padding:0px;")
+              {$name} ({$item_code})
+              {custom_fields_wrapper}
+              small 
+                {custom_field}
+                div 
+                  small 
+                    {$id}: {$name}
+                {/}
+              {/}
+            .col-lg-3
+              {$sales_amount} ({qty_wrapper}{qty_form}{qty}0{/}{/}{/})
+            .col-lg-1
+              button.btn.btn-xs.btn-info.pull-right.xepan-commerce-cart-item-delete(data-cartid='{$id}') x
+          {/}{/}
+          {/lister}
+        {not_found}
+        li.xepan-cart-empty.text-center
+          {$not_found_message}
+        {/}
+        {footer}
+        li.divider
+        li
+          {sum_amount_excluding_tax_wrapper}
+          .row
+            .col-lg-6 Sum Amount
+            .col-lg-6.text-right  {total_amount}0.00{/}
+          {/}
+          {discount_voucher_wrapper}
+          .row
+            .col-lg-6 Apply Coupon
+            .col-lg-6.text-right  {$discount_voucher}
+          .row
+            .col-lg-6 Discount Amount
+            .col-lg-6.text-right  {discount_amount}0.00{/}
+          {/}
+          {sum_shipping_charge_wrapper}
+          .row
+            .col-lg-6 Shipping Charge
+            .col-lg-6.text-right {total_shipping_amount}0.00{/}
+          {/}
+          {tax_amount_wrapper}
+          .row
+            .col-lg-6 Tax Amount
+            .col-lg-6.text-right {tax_amount}0.00{/}
+          {/}
+          {total_amount_wrapper}
+          .row
+            .col-lg-6 Total Amount:
+            .col-lg-6.text-right {net_amount}0.00{/}
+          {/}
+        li.divider
+        li
+          .row
+            .col-md-6
+              {cart_detail_btn_wrapper}
+              a.text-center.btn.btn-success.btn-block(href="{$cart_detail_url}") View Cart
+              {/}
+            .col-md-6
+              {proceed_to_next_button_wrapper}
+              .btn.btn-block.btn-primary.xepan-cart-proceed-to-next-btn Checkout
+              {/}
+        {/footer}
+      {/lister_wrapper}
+  script.
+    $('.manualdropdown').click(function(){
+      $(this).children('li.dropdown').toggleClass('open');
+    });
+  {/}

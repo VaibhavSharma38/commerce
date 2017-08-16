@@ -1,0 +1,164 @@
+
+<div id="user-profile">
+  <div class="col-lg-12 col-md-12 col-sm-12">{$contact_view_full_width}</div>
+  <div class="col-lg-3 col-md-4 col-sm-4">{$contact_view}</div>{details}
+  <div class="col-lg-9 col-md-8 col-sm-8">
+    <div class="main-box clearfix">
+      <div class="tabs-wrapper profile-tabs">
+        <ul class="nav nav-tabs responsive-tabs">
+          <li class="active"><a data-toggle="tab" href="#tab-BasicInfo">Customer Info</a></li>
+          <li><a data-toggle="tab" href="#tab-Orders">Orders</a></li>
+          <li><a data-toggle="tab" href="#tab-Invoice">Invoice</a></li>
+          <li><a data-toggle="tab" href="#tab-Activity">Activity</a></li>
+          <li><a data-toggle="tab" href="#tab-freelacat">Freelancer Category</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="tab-BasicInfo" class="tab-pane active">
+            <div id="BasicInfo"></div>{basic_info}
+            <div class="col-lg-12">
+              <div class="main-box clearfix">
+                <header class="main-box-header clearfix">
+                  <h1>{$organization}</h1>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-box">
+                        <header class="main-box-header clearfix">
+                          <h2>Legal Information:</h2>
+                        </header>
+                        <div class="main-box-body clearfix">
+                          <div class="row xepan-push">
+                            <div class="col-lg-3">
+                              <label> </label><strong>Tin Number:</strong>
+                              <div>{$tin_no}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>Pan Number:</strong>
+                              <div>{$pan_no}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>Currency Number:</strong>
+                              <div>{$currency}{$currency_id}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label></label><strong>User Id :</strong>
+                              <div>{$user}{$user_id}</div>
+                            </div>
+                          </div>
+                          <div class="row">   
+                            <div class="col-lg-3">
+                              <label> </label><strong>Is Designer:</strong>
+                              <div>{$is_designer}  </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-box">
+                        <header class="main-box-header clearfix">
+                          <h2>Billing Address:</h2>
+                        </header>
+                        <div id="billing-address" class="main-box-body clearfix">
+                          <div class="row xepan-push">
+                            <div class="col-lg-12">
+                              <label> </label><strong>Address:</strong>
+                            </div>
+                          </div>
+                          <div class="row xepan-push">
+                            <div class="col-lg-12">
+                               
+                              {$billing_address}
+                            </div>
+                          </div>
+                          <div class="row xepan-push"> 
+                            <div class="col-lg-3">
+                              <label> </label><strong>Country:</strong>
+                              <div>{$billing_country}{$billing_country_id}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>State:</strong>
+                              <div>{$billing_state}{$billing_state_id}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>City:</strong>
+                              <div>{$billing_city}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>Pin Code:</strong>
+                              <div>{$billing_pincode}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="checkbox-nice">{$same_as_billing_address}</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div id="shipping_address" class="main-box">
+                        <header class="main-box-header clearfix">
+                          <h2>Shipping Address:</h2>
+                        </header>
+                        <div class="main-box-body clearfix"> 
+                          <div class="row xepan-push">
+                            <div class="col-lg-12">
+                              <label> </label><strong>Address:</strong>
+                            </div>
+                          </div>
+                          <div class="row xepan-push">
+                            <div class="col-lg-12">
+                               
+                              {$shipping_address}
+                            </div>
+                          </div>
+                          <div class="row xepan-push"> 
+                            <div class="col-lg-3">
+                              <label> </label><strong>Country:</strong>
+                              <div>{$shipping_country}{$shipping_country_id}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>State:</strong>
+                              <div>{$shipping_state}{$shipping_state_id}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>City:</strong>
+                              <div>{$shipping_city}</div>
+                            </div>
+                            <div class="col-lg-3">
+                              <label> </label><strong>Pin Code:</strong>
+                              <div>{$shipping_pincode}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-box">
+                        <div class="main-box-body clearfix">
+                          <label></label><strong>Remarks:</strong>
+                          <div class="atk-form-row atk-form-field"> {$remark}          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+              </div>
+            </div>{/}
+          </div>
+          <div id="tab-Orders" class="tab-pane">{$orders}</div>
+          <div id="tab-Invoice" class="tab-pane">{$invoices}</div>
+          <div id="tab-Activity" class="tab-pane">{$activity}</div>
+          <div id="tab-freelacat" class="tab-pane">{$freelancer_cat_asso}{$cat_asso_form}</div>
+        </div>
+      </div>
+    </div>
+  </div>{/}
+</div>

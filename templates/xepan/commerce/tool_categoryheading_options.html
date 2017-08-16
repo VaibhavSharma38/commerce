@@ -1,0 +1,15 @@
+
+<div id="{$_name}" style="display:none" for-xepan-component="xepan/commerce/Tool_CategoryHeading" class="xepan-tool-options">
+  <h3>Category Heading Options</h3>
+  <script>
+    $('#{$_name} [data-attr]').on('change',function(){
+    	$(current_selected_component).attr($(this).data('attr'),$(this).val());
+    });
+    
+    $('#{$_name}').on('show',function(event){
+    	$('#{$_name} [data-attr]').each(function(index,value){
+    		$(this).val($(current_selected_component).attr($(this).data('attr')));				
+    	});
+    })
+  </script>
+</div>
