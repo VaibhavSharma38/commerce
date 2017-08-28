@@ -192,7 +192,7 @@ class page_itemimport extends \xepan\base\Page{
 				$model_cf_asso->unload();
 				$model_cf_value->unload();
     			
-	        	CATEGORY
+	        	// CATEGORY
 	        	$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
 	        	$assoc_m->addCondition('item_id',$item->id);
 
