@@ -208,7 +208,7 @@ class page_itemimport extends \xepan\base\Page{
         		
         		// $data [] = [$item['sku'],'','','',$category,$style,$construction,$design,$color,$size,$shape,$material,$features];		
         		// $data [] = [$item['sku'],'','','','',$style,$construction,$design,$color,$size,$shape,$material,$features];		
-        		$data [] = [$item['sku'],$item['description'],'','',$category,'','','','','','','',''];		
+        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,'','','','','','','',''];		
 	        }
 	        
 			foreach ($data as $row)
