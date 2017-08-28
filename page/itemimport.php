@@ -28,182 +28,182 @@ class page_itemimport extends \xepan\base\Page{
 	        $data = [];
 	        foreach ($item_m as $item) {	
         		// find construction
-				// $spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Construction');
+				$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Construction');
 
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
-				// $model_cf_value->tryLoadAny();
-				// $construction = $model_cf_value['name'];					   
+				$model_cf_value->tryLoadAny();
+				$construction = $model_cf_value['name'];					   
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
 
-    //     		// design
-				// $spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Design');
+        		// design
+				$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Design');
 
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
-				// $model_cf_value->tryLoadAny();
-				// $design = $model_cf_value['name'];
+				$model_cf_value->tryLoadAny();
+				$design = $model_cf_value['name'];
 
-    //     		// color
-				// $spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Color');
+        		// color
+				$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Color');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
 
-				// $model_cf_value->tryLoadAny();
-				// $color = $model_cf_value['name'];
+				$model_cf_value->tryLoadAny();
+				$color = $model_cf_value['name'];
 
-    //     		// material
-	   //      	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-    //     		$spec_m->loadBy('name','Material');
+        		// material
+	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+        		$spec_m->loadBy('name','Material');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
   
-				// $model_cf_value->tryLoadAny();
-				// $material = $model_cf_value['name'];	
+				$model_cf_value->tryLoadAny();
+				$material = $model_cf_value['name'];	
         		
-    //     		// features
-	   //      	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-    //     		$spec_m->loadBy('name','Features');
+        		// features
+	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+        		$spec_m->loadBy('name','Features');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
   
-				// $model_cf_value->tryLoadAny();
-				// $features = $model_cf_value['name'];	
+				$model_cf_value->tryLoadAny();
+				$features = $model_cf_value['name'];	
 
-				// // size
-	   //      	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Standard Size (ft.)');
+				// size
+	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Standard Size (ft.)');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
   
-				// $model_cf_value->tryLoadAny();
-				// $size = $model_cf_value['name'];	
+				$model_cf_value->tryLoadAny();
+				$size = $model_cf_value['name'];	
 
-    //     		// find shape
-	   //      	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Shape');
+        		// find shape
+	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Shape');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
-				// $model_cf_value->tryLoadAny();
-				// $shape = $model_cf_value['name'];					   
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value->tryLoadAny();
+				$shape = $model_cf_value['name'];					   
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
 	        	
-	   //      	// find style
-	   //      	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Style');
+	        	// find style
+	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Style');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
-				// $model_cf_value->tryLoadAny();
-				// $style = $model_cf_value['name'];					   
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value->tryLoadAny();
+				$style = $model_cf_value['name'];					   
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
 	        	
-	   //      	// find material
-	   //      	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// $spec_m->loadBy('name','Material');
+	        	// find material
+	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Material');
 				
-				// $model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// $model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// $model_cf_asso->addCondition('item_id',$item_m->id);
-				// $model_cf_asso->tryLoadAny();
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
 
-				// $model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 					   ->addCondition('customfield_association_id', $model_cf_asso->id);
-				// $model_cf_value->tryLoadAny();
-				// $material = $model_cf_value['name'];					   
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value->tryLoadAny();
+				$material = $model_cf_value['name'];					   
 
-				// $spec_m->unload();
-				// $model_cf_asso->unload();
-				// $model_cf_value->unload();
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
     			
 	        	// CATEGORY
-	        	$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
-	        	$assoc_m->addCondition('item_id',$item->id);
+	        	// $assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
+	        	// $assoc_m->addCondition('item_id',$item->id);
 
-	        	$category_name_array = [];
-	        	foreach ($assoc_m as $assoc) {
-	        		$cat_m = $this->add('xepan\commerce\Model_Category');
-	        		$cat_m->load($assoc['category_id']);
-	        		$category_name_array [] = $cat_m['name'];
-	        	}
+	        	// $category_name_array = [];
+	        	// foreach ($assoc_m as $assoc) {
+	        	// 	$cat_m = $this->add('xepan\commerce\Model_Category');
+	        	// 	$cat_m->load($assoc['category_id']);
+	        	// 	$category_name_array [] = $cat_m['name'];
+	        	// }
 
-	        	$category = implode(',',$category_name_array);
+	        	// $category = implode(',',$category_name_array);
         		// $data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$style,$construction,$design,$color,$size,$shape,$material,$features];		
         		
         		$data [] = [$item['sku'],'','','','',$style,$construction,$design,$color,$size,$shape,$material,$features];		
