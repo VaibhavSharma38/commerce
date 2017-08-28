@@ -192,21 +192,19 @@ class page_itemimport extends \xepan\base\Page{
 				$model_cf_asso->unload();
 				$model_cf_value->unload();
     			
-	        	// CATEGORY
-	        	// $assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
-	        	// $assoc_m->addCondition('item_id',$item->id);
+	        	CATEGORY
+	        	$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
+	        	$assoc_m->addCondition('item_id',$item->id);
 
-	        	// $category_name_array = [];
-	        	// foreach ($assoc_m as $assoc) {
-	        	// 	$cat_m = $this->add('xepan\commerce\Model_Category');
-	        	// 	$cat_m->load($assoc['category_id']);
-	        	// 	$category_name_array [] = $cat_m['name'];
-	        	// }
+	        	$category_name_array = [];
+	        	foreach ($assoc_m as $assoc) {
+	        		$cat_m = $this->add('xepan\commerce\Model_Category');
+	        		$cat_m->load($assoc['category_id']);
+	        		$category_name_array [] = $cat_m['name'];
+	        	}
 
-	        	// $category = implode(',',$category_name_array);
-        		// $data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$style,$construction,$design,$color,$size,$shape,$material,$features];		
-        		
-        		$data [] = [$item['sku'],'','','','',$style,$construction,$design,$color,$size,$shape,$material,$features];		
+	        	$category = implode(',',$category_name_array);
+        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$style,$construction,$design,$color,$size,$shape,$material,$features];		        		
 	        }
 	        
 			foreach ($data as $row)
