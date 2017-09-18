@@ -21,7 +21,7 @@ class page_itemimport extends \xepan\base\Page{
 	        
 			$file = fopen('php://output', 'w');
 	        
-			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category/collection','style','construction','design','color','standard size','shape','material','features'));
+			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category','collection','style','construction','design','color','standard size','shape','material','features'));
 	        
 	        $item_m = $this->add('xepan\commerce\Model_Item');
 
@@ -197,14 +197,20 @@ class page_itemimport extends \xepan\base\Page{
 	        	$assoc_m->addCondition('item_id',$item->id);
 
 	        	$category_name_array = [];
+	        	$collection_name_array = [];
 	        	foreach ($assoc_m as $assoc) {
 	        		$cat_m = $this->add('xepan\commerce\Model_Category');
 	        		$cat_m->load($assoc['category_id']);
-	        		$category_name_array [] = $cat_m['name'];
+	        		
+	        		if($cat_m['is_collection'])
+	        			$collection_name_array [] = $cat_m['name'];
+	        		else
+	        			$category_name_array [] = $cat_m['name'];
 	        	}
 
 	        	$category = implode(',',$category_name_array);
-        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$style,$construction,$design,$color,$size,$shape,$material,$features];		        		
+	        	$collection = implode(',',$collection_name_array);
+        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$collection,$style,$construction,$design,$color,$size,$shape,$material,$features];		        		
 	        }
 	        
 			foreach ($data as $row)
