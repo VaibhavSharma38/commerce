@@ -9,7 +9,8 @@ class page_itemenquiry extends\xepan\base\Page{
 		parent::init();
 
 		$enquiry_model = $this->add('xepan\commerce\Model_ItemEnquiry');
-		$grid = $this->add('xepan\base\Grid');
-		$grid->setModel($enquiry_model);
+		
+		$crud = $this->add('xepan\hr\CRUD',['allow_add'=>false]);
+		$crud->setModel($enquiry_model);
 	}
 }
