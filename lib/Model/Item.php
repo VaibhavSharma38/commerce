@@ -2343,202 +2343,202 @@ class Model_Item extends \xepan\hr\Model_Document{
 	}
 
 	function importItem1($data){
-		// foreach ($data as $key => $record) {
-		// 	$item_m = $this->add('xepan\commerce\Model_Item');
-		// 	foreach ($record as $field => $value) {
-		// 		$field = trim($field);
-		// 		$value = trim($value);
+		foreach ($data as $key => $record) {
+			$item_m = $this->add('xepan\commerce\Model_Item');
+			foreach ($record as $field => $value) {
+				$field = trim($field);
+				$value = trim($value);
 
-		// 		if($field == 'sku' && $value){
-		// 			$item_m->loadBy('sku',$value);
-		// 		}
+				if($field == 'sku' && $value){
+					$item_m->loadBy('sku',$value);
+				}
 
 				// if($field == 'Description' && $value){
 				// 	$item_m['description'] = $value;
 				// }
 
-				// if($field == "standard size" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Standard Size (ft.)');						
+				if($field == "standard size" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Standard Size (ft.)');						
 
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				// 	$model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+					$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
-				// if($field == "construction" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Construction');
+				if($field == "construction" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Construction');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				// 	$model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+					$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
-				// if($field == "design" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Design');
+				if($field == "design" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Design');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//     $model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				    $model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
-				// if($field == "color" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Color');
+				if($field == "color" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Color');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//     $model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				    $model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
-				// if($field == "Color Family" && $value){														
+				if($field == "Color Family" && $value){														
 					
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name',' Color');
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name',' Color');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//     $model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				    $model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
 
 				// if($field == "shape" && $value){														
@@ -2577,152 +2577,189 @@ class Model_Item extends \xepan\hr\Model_Document{
 				// 	$model_cf_value->unload();
 				// }
 
-				// if($field == "style" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Style');
+				if($field == "style" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Style');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//  	$model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				 	$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 					
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }				
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}				
 
-				// if($field == "material" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Material');
+				if($field == "material" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Material');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//  	$model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				 	$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 					
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
-				// if($field == "features" && $value){														
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Features');
+				if($field == "features" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Features');
 					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//  	$model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				 	$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 					
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
 
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
 
-				// if($field == "Pile Height" && $value){																																	
-				// 	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				// 	$spec_m->loadBy('name','Pile Height');
-					
-				// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-				// 	$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
-				// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-				//  	$model_cf_asso->addCondition('status','Active');
-				// 	$model_cf_asso->tryLoadAny();
-					
-				// 	if(!$model_cf_asso->loaded()){
-				// 		$model_cf_asso->save();
-				// 	}
 
-				// 	$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
-				// 						   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				if($field == "collection" && $value){														
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Features');
 					
-				// 	if($model_cf_value->count()->getOne() > 0){
-				// 		foreach ($model_cf_value as $m) {
-				// 			$m->delete();
-				// 		}
-				// 	}
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				 	$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
 					
-				// 	$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-				// 	$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
-				// 	$model_cf_value1['name'] = $value;
-				// 	$model_cf_value1['highlight_it'] = true;
-				// 	$model_cf_value1['status']= 'Active';
-				// 	$model_cf_value1->save();
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
+
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
 					
-				// 	$model_cf_value1->unload();
-				// 	$spec_m->unload();
-				// 	$model_cf_asso->unload();
-				// 	$model_cf_value->unload();
-				// }
-			// }
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
+
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
+					
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
+
+				if($field == "Pile Height" && $value){																																	
+					$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+					$spec_m->loadBy('name','Pile Height');
+					
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+					$model_cf_asso->addCondition('item_id',$item_m->id);
+				 	$model_cf_asso->addCondition('status','Active');
+					$model_cf_asso->tryLoadAny();
+					
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso->save();
+					}
+
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+										   ->addCondition('customfield_association_id', $model_cf_asso->id);
+					
+					if($model_cf_value->count()->getOne() > 0){
+						foreach ($model_cf_value as $m) {
+							$m->delete();
+						}
+					}
+					
+					$model_cf_value1 = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value1['customfield_association_id'] = $model_cf_asso->id;
+					$model_cf_value1['name'] = $value;
+					$model_cf_value1['highlight_it'] = true;
+					$model_cf_value1['status']= 'Active';
+					$model_cf_value1->save();
+					
+					$model_cf_value1->unload();
+					$spec_m->unload();
+					$model_cf_asso->unload();
+					$model_cf_value->unload();
+				}
+			}
 
 			// $item_m->Save();
-		// }
+		}
 	}
 }
