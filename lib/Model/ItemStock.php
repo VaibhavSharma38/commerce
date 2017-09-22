@@ -17,7 +17,8 @@ class Model_ItemStock extends \xepan\base\Model_Table{
 	}
 
 	function importStock($data){
-
+		throw new \Exception("UNDER CONSTRUCTION", 1);
+		
 		$this->add('xepan\commerce\Model_ItemStock')->deleteAll();
 
 		foreach ($data as $key => $record) {
@@ -122,7 +123,7 @@ class Model_ItemStock extends \xepan\base\Model_Table{
 					$item_stock_m['created_at'] = $this->app->now;
 					
 					// try{
-						if(!$item_stock_m['current_stock'] == '' && !$item_stock_m['size'] == '' && !$item_stock_m['sku'] == '')
+						// if(!$item_stock_m['current_stock'] == '' && !$item_stock_m['size'] == '' && !$item_stock_m['sku'] == '')
 							$item_stock_m->save();
 					// }catch(\Exception $e){
 					// 	continue;
