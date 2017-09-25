@@ -51,6 +51,11 @@
 	}
 
 	function beforeSave(){
+		$cf_generic = $this->add('xepan\commerce\Model_Item_CustomField_Generic');
+		$cf_generic->load($this['customfield_generic_id']);
+
+		$this['order'] = $cf_generic['sequence_order'];
+
 		$old_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
 		$old_asso->addCondition('customfield_generic_id',$this['customfield_generic_id']);
 		$old_asso->addCondition('item_id',$this['item_id']);
