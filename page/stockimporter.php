@@ -14,6 +14,7 @@ class page_stockimporter extends \xepan\base\Page{
 		$stock_tab = $tabs->addTab('Stock');
 		$price_tab = $tabs->addTab('Price');
 		$item_tab = $tabs->addTab('Item');
+		$lead_tab = $tabs->addTab('Contacts / Leads');
 
 		$item_stock_m = $stock_tab->add('xepan\commerce\Model_ItemStock');
 
@@ -38,5 +39,22 @@ class page_stockimporter extends \xepan\base\Page{
 		$price_import_btn->js('click')->univ()->frameURL('Import CSV',$this->app->url('xepan_commerce_priceimport'));				
 	
 		$item_tab->add('xepan\commerce\page_item');
+
+		$lead_grid = $lead_tab->add('xepan\hr\Grid');
+		$lead_m = $this->add('xepan\marketing\Model_Lead');
+		$lead_m->setOrder('created_at','desc');
+		$lead_grid->setModel($lead_m,['name','emails_str']);
+
+		$lead_export_btn = $lead_grid->addButton('Export CSV')->addClass('btn btn-primary');
+		$lead_export_btn->setIcon('ui-icon-arrowthick-1-n');
+
+		if($lead_export_btn->isClicked()){
+			$this->exportLeads();
+			$this->js(null,$lead_grid->js()->reload())->univ()->successMessage('Done')->execute();
+		}
+	}
+
+	function exportLeads(){
+		$this->js()->univ()->newWindow($this->app->url('xepan_commerce_leadexport',['download_lead'=>true]))->execute();
 	}
 }
