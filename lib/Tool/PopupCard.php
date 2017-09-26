@@ -41,13 +41,13 @@ class Tool_PopupCard extends \xepan\cms\View_Tool{
 				$ei = $this->add('xepan\base\Model_Contact_Email');
 				$ei->tryLoadBy('value',$form['email']);
 
-				if($ei->loaded()){		
+				if($ei->loaded()){
 					$l_id = $ei['contact_id'];
 					$l_model = $this->add('xepan\marketing\Model_Lead')->load($l_id);
 					$cat_arr = $l_model->getAssociatedCategories();
-
-					if(in_array('Online Subscriptions', $cat_arr))
-						return $form->js()->univ()->errorMessage('Already Subscribed')->execute();
+					if(in_array('5595', $cat_arr))
+						return $this->js(true,$form->js()->univ()->errorMessage('Already Subscribed'))->_selector('#'.$this->name."_card_model")->modal('hide')->execute();
+						// return $form->js()->univ()->errorMessage('Already Subscribed')->execute();
 					
 
 					$category_m = $this->add('xepan\marketing\Model_MarketingCategory');
@@ -63,7 +63,7 @@ class Tool_PopupCard extends \xepan\cms\View_Tool{
 						$association->save();
 					}
 
-					return $form->js()->univ()->successMessage('Done')->execute();
+					return $this->js(true,$form->js()->univ()->successMessage(' Subscribed'))->_selector('#'.$this->name."_card_model")->modal('hide')->execute();
 				}				
 
 				$lead = $this->add('xepan\marketing\Model_Lead');				
@@ -97,7 +97,7 @@ class Tool_PopupCard extends \xepan\cms\View_Tool{
 	    			return $form->error('email','Please try again');
 	    		}
 	    			    													    												
-				return $form->js()->univ()->successMessage('Done')->execute();	
+				return $this->js(true,$form->js()->univ()->successMessage(' Subscribed'))->_selector('#'.$this->name."_card_model")->modal('hide')->execute();	
 			}
 		}
 

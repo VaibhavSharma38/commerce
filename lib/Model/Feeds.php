@@ -20,6 +20,6 @@ class Model_Feeds extends \xepan\base\Model_Table{
 		$feed_m = $this->add('xepan\commerce\Model_Feeds');
 		
 		if($feed_m->count()->getOne())
-			throw new \Exception("At present only single news feed feature is working");
+			throw new \Exception("Delete this feed and add new if you need to do changes");
 	}
 }
