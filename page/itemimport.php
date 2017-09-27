@@ -11,7 +11,7 @@ class page_itemimport extends \xepan\base\Page{
 		$form->addSubmit('Export Current Item');
 		
 		if($_GET['download_sample_csv_file']){
-			$output = ['sku','description','hide_in_product','hide_in_shop','category','style','construction','design','color','size','shape','material','features','hsn'];
+			$output = ['sku','description','hide_in_product','hide_in_shop','category','style','construction','design','color','size','shape','material','features','hsn_code'];
 
 			$output = implode(",", $output);
 	    	header("Content-type: text/csv");
@@ -21,7 +21,7 @@ class page_itemimport extends \xepan\base\Page{
 	        
 			$file = fopen('php://output', 'w');
 	        
-			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category','collection','style','construction','design','color','color family','standard size','shape','material','pile height','features'));
+			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category','collection','style','construction','design','color','color family','standard size','shape','material','pile height','features','hsn_code'));
 	        
 	        $item_m = $this->add('xepan\commerce\Model_Item');
 
