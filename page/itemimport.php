@@ -11,7 +11,7 @@ class page_itemimport extends \xepan\base\Page{
 		$form->addSubmit('Export Current Item');
 		
 		if($_GET['download_sample_csv_file']){
-			$output = ['sku','description','hide_in_product','hide_in_shop','category','style','construction','design','color','size','shape','material','features'];
+			$output = ['sku','description','hide_in_product','hide_in_shop','category','style','construction','design','color','size','shape','material','features','hsn'];
 
 			$output = implode(",", $output);
 	    	header("Content-type: text/csv");
@@ -248,7 +248,7 @@ class page_itemimport extends \xepan\base\Page{
 
 	        	$category = implode(',',$category_name_array);
 	        	$collection = implode(',',$collection_name_array);
-        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$collection,$style,$construction,$design,$color,$color_family,$size,$shape,$material,$pile_height,$features];		        		
+        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$collection,$style,$construction,$design,$color,$color_family,$size,$shape,$material,$pile_height,$features,$item['hsn_no']];		        		
 	        }
 	        
 			foreach ($data as $row)
