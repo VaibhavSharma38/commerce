@@ -2344,7 +2344,6 @@ class Model_Item extends \xepan\hr\Model_Document{
 
 	function importItem($data){
 		// multi record loop
-		return;
 		foreach ($data as $key => $record) {
 			try{
 				$this->api->db->beginTransaction();
@@ -2357,59 +2356,59 @@ class Model_Item extends \xepan\hr\Model_Document{
 					$value = trim($value);
 
 					// sku
-					if($field == "category" && $value){
-						$category = explode(",",$value);
-						continue;
-					}
+					// if($field == "category" && $value){
+					// 	$category = explode(",",$value);
+					// 	continue;
+					// }
 
-					if($field == "state"){
-						$state = $this->add('xepan\base\Model_State')->addCondition('name','like',$value)->tryLoadAny();
-						if(!$state->loaded())
-							continue;
-						$value = $state->id;
-					}
+					// if($field == "state"){
+					// 	$state = $this->add('xepan\base\Model_State')->addCondition('name','like',$value)->tryLoadAny();
+					// 	if(!$state->loaded())
+					// 		continue;
+					// 	$value = $state->id;
+					// }
 
-					$lead[$field] = $value;
+					$item[$field] = $value;
 				}
 
 				// try{
-					$lead->save();
+					$item->save();
 				// }catch(\Exception $e){
 				// 	continue;
 				// }
 
 				// insert category
-				foreach ($category as $key => $name) {
-					$name = trim($name);
+				// foreach ($category as $key => $name) {
+				// 	$name = trim($name);
 
-					$lead_category = $this->add('xepan\marketing\Model_MarketingCategory');
-					$lead_category->addCondition('name',$name);
-					$lead_category->tryLoadAny();
-					// try{
-						$lead_category->save();
-					// }catch(\Exception $e){
-					// 	continue;
-					// }
+				// 	$lead_category = $this->add('xepan\marketing\Model_MarketingCategory');
+				// 	$lead_category->addCondition('name',$name);
+				// 	$lead_category->tryLoadAny();
+				// 	// try{
+				// 		$lead_category->save();
+				// 	// }catch(\Exception $e){
+				// 	// 	continue;
+				// 	// }
 					
-					$lead_category_asso = $this->add('xepan\marketing\Model_Lead_Category_Association');
-					$lead_category_asso->addCondition('lead_id',$lead->id);
-					$lead_category_asso->addCondition('marketing_category_id',$lead_category->id);
-					$lead_category_asso->tryLoadAny();
+				// 	$lead_category_asso = $this->add('xepan\marketing\Model_Lead_Category_Association');
+				// 	$lead_category_asso->addCondition('lead_id',$lead->id);
+				// 	$lead_category_asso->addCondition('marketing_category_id',$lead_category->id);
+				// 	$lead_category_asso->tryLoadAny();
 					
-					// try{
-						$lead_category_asso->save();
-					// }catch(\Exception $e){
+				// 	// try{
+				// 		$lead_category_asso->save();
+				// 	// }catch(\Exception $e){
 
-					// }
-					// echo "cat = ".$lead_category['id']."<br/>";
-				}
+				// 	// }
+				// 	// echo "cat = ".$lead_category['id']."<br/>";
+				// }
 
 				// echo "<pre>";
 				// print_r($category);
 				// print_r($email_array);
 				// print_r($contact_array);
 
-				$lead->unload();
+				$item->unload();
 
 				$this->api->db->commit();
 			}catch(\Exception $e){
