@@ -2420,3 +2420,35 @@ class Model_Item extends \xepan\hr\Model_Document{
 		}
 	}
 }
+
+
+
+// if($field == 'standard size' && $value){
+// 	$custom_field = $this->add('xepan\commerce\Model_Item_CustomField');
+// 	$custom_field->loadBy('name','Size');
+
+// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+// 	$model_cf_asso->addCondition('customfield_generic_id',$custom_field->id);
+// 	$model_cf_asso->addCondition('item_id',$item_m->id);
+
+// 	$model_cf_asso->tryLoadAny();
+// 	$model_cf_asso['status'] = "Active";
+// 	$model_cf_asso->save();
+
+// 	$custom_field_values = explode(",",trim($value));
+// 	foreach ($custom_field_values as $val) {
+// 		if(!$val)
+// 			continue;
+		
+// 		$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+// 		$model_cf_value->addCondition('customfield_association_id',$model_cf_asso->id);
+// 		$model_cf_value->addCondition('name',$val);
+// 		$model_cf_value->tryLoadAny();
+// 		$model_cf_value['status'] = "Active";
+// 		$model_cf_value->save();
+// 	}
+
+// 	$custom_field->unload();					   
+// 	$model_cf_asso->unload();	
+// 	$model_cf_value->unload();
+// }
