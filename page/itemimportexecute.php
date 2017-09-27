@@ -30,7 +30,7 @@ class page_itemimportexecute extends \xepan\base\Page{
 				$data = $importer->get();
 
 				$item_m = $this->add('xepan\commerce\Model_Item');
-				$item_m->importItem1($data);
+				$item_m->importItem($data);
 			}
 		}
 	}	

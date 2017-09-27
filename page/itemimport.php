@@ -21,7 +21,7 @@ class page_itemimport extends \xepan\base\Page{
 	        
 			$file = fopen('php://output', 'w');
 	        
-			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category','collection','style','construction','design','color','standard size','shape','material','features'));
+			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category','collection','style','construction','design','color','color family','standard size','shape','material','pile height','features'));
 	        
 	        $item_m = $this->add('xepan\commerce\Model_Item');
 
@@ -81,6 +81,25 @@ class page_itemimport extends \xepan\base\Page{
 				$model_cf_value->tryLoadAny();
 				$color = $model_cf_value['name'];
 
+				// COLOR FAMILY
+				$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+        		$spec_m->loadBy('name',' Color');
+				
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
+
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
+
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
+  
+				$model_cf_value->tryLoadAny();
+				$color_family = $model_cf_value['name'];	
+
         		// material
 	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
         		$spec_m->loadBy('name','Material');
@@ -121,7 +140,7 @@ class page_itemimport extends \xepan\base\Page{
 
 				// size
 	        	$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
-				$spec_m->loadBy('name','Standard Size (ft.)');
+				$spec_m->loadBy('name','Standard Size');
 				
 				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
 				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
@@ -192,6 +211,25 @@ class page_itemimport extends \xepan\base\Page{
 				$model_cf_asso->unload();
 				$model_cf_value->unload();
     			
+				// PILE HEIGHT
+				$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+				$spec_m->loadBy('name','Pile Height');
+				
+				$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+				$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+				$model_cf_asso->addCondition('item_id',$item_m->id);
+				$model_cf_asso->tryLoadAny();
+
+				$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+									   ->addCondition('customfield_association_id', $model_cf_asso->id);
+				$model_cf_value->tryLoadAny();
+				$pile_height = $model_cf_value['name'];					   
+
+				$spec_m->unload();
+				$model_cf_asso->unload();
+				$model_cf_value->unload();
+
+
 	        	// CATEGORY
 	        	$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
 	        	$assoc_m->addCondition('item_id',$item->id);
@@ -210,7 +248,7 @@ class page_itemimport extends \xepan\base\Page{
 
 	        	$category = implode(',',$category_name_array);
 	        	$collection = implode(',',$collection_name_array);
-        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$collection,$style,$construction,$design,$color,$size,$shape,$material,$features];		        		
+        		$data [] = [$item['sku'],$item['description'],$item['hide_in_product'],$item['hide_in_shop'],$category,$collection,$style,$construction,$design,$color,$color_family,$size,$shape,$material,$pile_height,$features];		        		
 	        }
 	        
 			foreach ($data as $row)
