@@ -202,10 +202,11 @@
 
 	function importPrice($data){
 		$price_m = $this->add('xepan\commerce\Model_Item_Quantity_Set');
+		
 		foreach ($price_m as $price) {
 			$price->delete();
 		}
-		
+
 		foreach ($data as $key => $record) {
 			try{
 				$this->api->db->beginTransaction();
@@ -237,7 +238,6 @@
 						$price_m['is_default'] = 0;
 						$price_m['qty'] = 1;
 					}
-
 				}
 
 				$price_m->Save();
