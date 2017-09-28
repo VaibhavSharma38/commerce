@@ -73,7 +73,6 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 
 		$item = $this->add('xepan\commerce\Model_Item_WebsiteDisplay');
 		$item->addCondition('status','Published');
-		$item->setOrder('name','asc');
 
 		$q = $item->dsql();
 		
@@ -222,7 +221,8 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 
 
 		//load record according to sequence of order 
-		$item->setOrder('display_sequence','desc');
+		$item->setOrder('display_sequence','asc');
+		$item->setOrder('name','asc');
 
 		$layout_template = $this->options['layout'];
 		

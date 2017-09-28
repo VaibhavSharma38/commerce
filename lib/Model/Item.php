@@ -1,4 +1,5 @@
 <?php
+
 namespace xepan\commerce;
 
 class Model_Item extends \xepan\hr\Model_Document{
@@ -252,6 +253,18 @@ class Model_Item extends \xepan\hr\Model_Document{
 
 		$this['search_string'] = $search_string;
 		
+		$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
+		$assoc_m->addCondition('item_id',$this->id);
+		$collection = "";
+		foreach ($assoc_m as $assoc) {
+    		$cat_m = $this->add('xepan\commerce\Model_Category');
+    		$cat_m->load($assoc['category_id']);
+	        		
+    		if($cat_m['is_collection'])
+    			$collection= $cat_m['name'];
+    	}
+			
+		$this['search_string'] = $collection." ".$this['search_string'];
 	}
 
 	function publish(){
@@ -2355,19 +2368,47 @@ class Model_Item extends \xepan\hr\Model_Document{
 					$field = strtolower(trim($field));
 					$value = trim($value);
 
-					// sku
-					// if($field == "category" && $value){
-					// 	$category = explode(",",$value);
-					// 	continue;
-					// }
+					// ----------------------------------------
+						// SKU, NAME, DESCRIPTION, HIDE_IN_PRODUCT, HIDE_IN_SHOP, IS_SALABLE, SHOW_DETAIL, SHOW_PRICE, WEBSITE DISPLAY 
+					// -----------------------------------------
 
-					// if($field == "state"){
-					// 	$state = $this->add('xepan\base\Model_State')->addCondition('name','like',$value)->tryLoadAny();
-					// 	if(!$state->loaded())
-					// 		continue;
-					// 	$value = $state->id;
-					// }
+					
 
+					// -----------------------------------------
+						// CATEGORY, COLLECTION
+					// -----------------------------------------
+
+
+					// -----------------------------------------
+						// STYLE, CONSTRUCTION, DESIGN, COLOR, COLLECTION, COLOR FAMILY, STANDARD SIZE, SHAPE, MATERIAL, PILE HEIGHT, FEATURES
+					// -----------------------------------------
+
+
+					// ADDING NEW ITEM / EDITING OLD
+					if($field == "sku" && $value){
+						$item->addCondition('sku',$value);
+						$item->tryLoadAny();
+						
+						if(!$item->loaded()){
+							$item['sku'] = $value;
+							$item['name'] = $value;
+							$item['is_saleable'] = true;
+							$item['website_display'] = true;
+							$item['show_detail'] = true;
+							$item['show_price'] = true;
+							$item->save();
+						}
+
+						$item_id = $item->id;
+						continue;
+					}
+
+					# ALL WITH TRYLOADANY()
+					//  description
+					//  hide_in_product
+					//  hide_in_shop
+					//  hsn_code
+					
 					$item[$field] = $value;
 				}
 
