@@ -221,8 +221,8 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 
 
 		//load record according to sequence of order 
-		$item->setOrder('display_sequence','asc');
-		// $item->setOrder('name','asc');
+		$item->setOrder('display_sequence','desc');
+		//$item->setOrder('name','asc');
 
 		$layout_template = $this->options['layout'];
 		
