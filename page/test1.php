@@ -8,7 +8,6 @@ Class page_test1 extends \xepan\base\Page{
 		parent::init();		
 		
 		$item_m = $this->add('xepan\commerce\Model_Item');
-		$item_m->setLimit(1);
 
 		foreach ($item_m as $item) {
 			$asso = $this->add('xepan\commerce\Model_Item_CustomField_Association')
