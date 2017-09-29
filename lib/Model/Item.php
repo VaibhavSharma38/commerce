@@ -212,8 +212,7 @@ class Model_Item extends \xepan\hr\Model_Document{
 		}
 	}
 
-	function updateSearchString($m){
-
+	function updateSearchString($m){		
 		$search_string = ' ';
 		$search_string .=" ". $this['name'];
 		$search_string .=" ". $this['sku'];
@@ -265,6 +264,31 @@ class Model_Item extends \xepan\hr\Model_Document{
     	}
 			
 		$this['search_string'] = $collection." ".$this['search_string'];
+
+		$spec_m = $this->add('xepan\commerce\Model_Item_Specification');
+		$spec_m->loadBy('name','Standard Size');
+		
+		$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+		$model_cf_asso->addCondition('customfield_generic_id',$spec_m->id);
+		$model_cf_asso->addCondition('item_id',$this->id);
+		$model_cf_asso->tryLoadAny();
+
+		$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value')
+							   ->addCondition('customfield_association_id', $model_cf_asso->id);
+
+		$spec_m->unload();
+		$model_cf_asso->unload();
+		$model_cf_value->unload();
+
+		$model_cf_value->tryLoadAny();
+		$size = $model_cf_value['name'];
+		
+		$size = str_replace(" ","",$size);
+		$size = str_replace("'","",$size);
+		$size = str_replace(","," ",$size);
+
+		$this['search_string'] = $this['search_string']." ".$size;
+			
 	}
 
 	function publish(){
