@@ -203,13 +203,14 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 				
 				$or = $q->orExpr();
 				foreach ($values_array as $value) {
+					$value = str_replace("\"","",$value);
 					$or->where($q->expr('[0] = "[1]"',[$item->getElement('value_name'),$value]));
 				}
 
 				$item->addCondition($q->andExpr()
 									->where('customfield_generic_id',$specification_id)
 									->where($or)
-									);
+									)->debug();
 			}
 
 
