@@ -20,7 +20,6 @@ class Model_ItemEnquiry extends \Model_Table{
 		$this->addField('state');
 		$this->addField('country');
 		$this->addField('requirements');
-		$this->addField('item_size');
 		$this->addField('created_at')->defaultValue($this->app->now);
 
 		$this->addHook('beforeSave',[$this,'validations']);

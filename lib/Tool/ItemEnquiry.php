@@ -27,25 +27,6 @@ class Tool_ItemEnquiry extends \xepan\cms\View_Tool{
 			$item_m->load($item_id);
 			
 			$custom_fields = $item_m->activeAssociateCustomField();
-			foreach ($custom_fields as $custom_field) {
-				if($custom_field['name'] === 'Size'){
-					$cf_field = $form->addField('xepan\commerce\DropDown','item_size', 'Rug Size');
-					
-					$cf_value_m = $this->add('xepan\commerce\Model_Item_CustomField_Value',['id_field'=>'name','title_field'=>'name']);				
-					$cf_value_m->addCondition('customfield_association_id',$custom_field->id);
-
-					// $cf_value_m->addExpression('stock_exist')->set(function($m,$q){
-					// 	$item_stock_m = $this->add('xepan\commerce\Model_ItemStock');
-					// 	$item_stock_m->addCondition('item_id',$m->getElement('item_id'));
-					// 	$item_stock_m->addCondition('size',$m->getElement('name'));
-					// 	return $item_stock_m->sum('current_stock');
-					// });
-
-					// $cf_value_m->addCondition('stock_exist','>',0);
-					$cf_field->setEmptyText('Select any available size');
-					$cf_field->setModel($cf_value_m);
-				}
-			}
 		
 			if($form->isSubmitted()){
 				if($form['name'] == ''){
@@ -71,7 +52,6 @@ class Tool_ItemEnquiry extends \xepan\cms\View_Tool{
 				$enquiry_m['country'] = $form['country'];
 				$enquiry_m['requirements'] = $form['requirements'];
 				$enquiry_m['item_id'] = $_GET['item_id'];
-				$enquiry_m['item_size'] = $form['item_size'];
 
 				if($this->app->auth->model->id){
 					$contact_m = $this->add('xepan\base\Model_Contact');
