@@ -2385,28 +2385,14 @@ class Model_Item extends \xepan\hr\Model_Document{
 			try{
 				$this->api->db->beginTransaction();
 
+				$category_array = [];
+				$specification_array = [];
 				$item_id = '';
 				$item = $this->add('xepan\commerce\Model_Item');
 				
 				foreach ($record as $field => $value) {
 					$field = strtolower(trim($field));
 					$value = trim($value);
-
-					// ----------------------------------------
-						// SKU, NAME, DESCRIPTION, HIDE_IN_PRODUCT, HIDE_IN_SHOP, IS_SALABLE, SHOW_DETAIL, SHOW_PRICE, WEBSITE DISPLAY 
-					// -----------------------------------------
-
-					
-
-					// -----------------------------------------
-						// CATEGORY, COLLECTION
-					// -----------------------------------------
-
-
-					// -----------------------------------------
-						// STYLE, CONSTRUCTION, DESIGN, COLOR, COLLECTION, COLOR FAMILY, STANDARD SIZE, SHAPE, MATERIAL, PILE HEIGHT, FEATURES
-					// -----------------------------------------
-
 
 					// ADDING NEW ITEM / EDITING OLD
 					if($field == "sku" && $value){
@@ -2420,6 +2406,7 @@ class Model_Item extends \xepan\hr\Model_Document{
 							$item['website_display'] = true;
 							$item['show_detail'] = true;
 							$item['show_price'] = true;
+							$item['status'] = 'Published';
 							$item->save();
 						}
 
@@ -2427,12 +2414,42 @@ class Model_Item extends \xepan\hr\Model_Document{
 						continue;
 					}
 
-					# ALL WITH TRYLOADANY()
-					//  description
-					//  hide_in_product
-					//  hide_in_shop
-					//  hsn_code
+					if($field == "description" && $value){
+						$item['description'] = $value;
+						continue;
+					}
+
+					if($field == "hide_in_product" && $value){
+						$item['hide_in_product'] = $value;
+						continue;
+					}
+
+					if($field == "hide_in_shop" && $value){
+						$item['hide_in_shop'] = $value;
+						continue;
+					}
+
+					if($field == "hsn_code" && $value){
+						$item['hsn_no'] = $value;
+						continue;
+					}
+										
 					
+					if($field == "category" && $value){
+						foreach (explode(',', $value) as $val){
+							$category_array [] = $val;	
+						}
+						continue;
+					}
+
+					if($field == "collection" && $value){
+						foreach (explode(',', $value) as $val){
+							$category_array [] = $val;	
+						}
+						continue;	
+					}
+
+					$specification_array [$field] = $value;					
 					$item[$field] = $value;
 				}
 
@@ -2442,36 +2459,76 @@ class Model_Item extends \xepan\hr\Model_Document{
 				// 	continue;
 				// }
 
-				// insert category
-				// foreach ($category as $key => $name) {
-				// 	$name = trim($name);
+				// Removing Old Category Association
+				$associated_category = $this->add('xepan\commerce\Model_CategoryItemAssociation');		
+				$associated_category->addCondition('item_id',$item_id);
 
-				// 	$lead_category = $this->add('xepan\marketing\Model_MarketingCategory');
-				// 	$lead_category->addCondition('name',$name);
-				// 	$lead_category->tryLoadAny();
-				// 	// try{
-				// 		$lead_category->save();
-				// 	// }catch(\Exception $e){
-				// 	// 	continue;
-				// 	// }
+				foreach ($associated_category as $ass_cat) {
+					$ass_cat->delete();
+				}
+				
+				// Insert Category	
+				foreach ($category_array as $value) {
+					// Finding category 
+					$cat_m = $this->add('xepan\commerce\Model_category');
+					$cat_m->tryLoadBy('name',$value);
 					
-				// 	$lead_category_asso = $this->add('xepan\marketing\Model_Lead_Category_Association');
-				// 	$lead_category_asso->addCondition('lead_id',$lead->id);
-				// 	$lead_category_asso->addCondition('marketing_category_id',$lead_category->id);
-				// 	$lead_category_asso->tryLoadAny();
+					if(!$cat_m->loaded())
+						continue;
+										
+					// Associating item with category
+					$cat_asso = $this->add('xepan\commerce\Model_CategoryItemAssociation');
+					$cat_asso->addCondition('item_id',$item_id);
+					$cat_asso->addCondition('category_id',$cat_m->id);
+					$cat_asso->tryLoadAny();
+
+					if(!$cat_asso->loaded()){
+						// try{
+							$cat_asso->save();
+						// }catch(\Exception $e){
+							// continue;
+						// }
+					}
+					// echo "cat = ".$cat_asso['id']."<br/>";
+				}
+
+				foreach ($specification_array as $key => $value) {
+					if(!$value)
+						continue;
+
+					$key = ucwords($key);
+					if($key === "Color Family")
+						$key = " Color";
 					
-				// 	// try{
-				// 		$lead_category_asso->save();
-				// 	// }catch(\Exception $e){
+					$custom_field = $this->add('xepan\commerce\Model_Item_Specification');
+					$custom_field->tryLoadBy('name',$key);
+					
+					if(!$custom_field->loaded())
+						continue;				
+					
+					$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
+					$model_cf_asso->addCondition('customfield_generic_id',$custom_field->id);
+					$model_cf_asso->addCondition('item_id',$item_id);
+					$model_cf_asso->tryLoadAny();
+					
+					if(!$model_cf_asso->loaded()){
+						$model_cf_asso['status'] = "Active";
+						$model_cf_asso->save();
+					}
 
-				// 	// }
-				// 	// echo "cat = ".$lead_category['id']."<br/>";
-				// }
-
-				// echo "<pre>";
-				// print_r($category);
-				// print_r($email_array);
-				// print_r($contact_array);
+					$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$model_cf_value->addCondition('customfield_association_id',$model_cf_asso->id);
+					
+					foreach ($model_cf_value as $cf) {
+						$model_cf_value->delete();
+					}
+					
+					$new_model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value');
+					$new_model_cf_value['customfield_association_id'] = $model_cf_asso->id;
+					$new_model_cf_value['name'] = $value;
+					$new_model_cf_value['status'] = "Active";
+					$new_model_cf_value->save();
+				}
 
 				$item->unload();
 
@@ -2485,35 +2542,3 @@ class Model_Item extends \xepan\hr\Model_Document{
 		}
 	}
 }
-
-
-
-// if($field == 'standard size' && $value){
-// 	$custom_field = $this->add('xepan\commerce\Model_Item_CustomField');
-// 	$custom_field->loadBy('name','Size');
-
-// 	$model_cf_asso = $this->add('xepan\commerce\Model_Item_CustomField_Association');
-// 	$model_cf_asso->addCondition('customfield_generic_id',$custom_field->id);
-// 	$model_cf_asso->addCondition('item_id',$item_m->id);
-
-// 	$model_cf_asso->tryLoadAny();
-// 	$model_cf_asso['status'] = "Active";
-// 	$model_cf_asso->save();
-
-// 	$custom_field_values = explode(",",trim($value));
-// 	foreach ($custom_field_values as $val) {
-// 		if(!$val)
-// 			continue;
-		
-// 		$model_cf_value = $this->add('xepan\commerce\Model_Item_CustomField_Value');
-// 		$model_cf_value->addCondition('customfield_association_id',$model_cf_asso->id);
-// 		$model_cf_value->addCondition('name',$val);
-// 		$model_cf_value->tryLoadAny();
-// 		$model_cf_value['status'] = "Active";
-// 		$model_cf_value->save();
-// 	}
-
-// 	$custom_field->unload();					   
-// 	$model_cf_asso->unload();	
-// 	$model_cf_value->unload();
-// }
