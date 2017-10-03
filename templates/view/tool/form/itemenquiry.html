@@ -30,7 +30,8 @@ select {
 
 textarea {
     padding: 10px 15px;
-    width: 60%;
+    width: 100%;
+    max-width: 100%;
     color: #000;
     font-size: 0.8125em;
     border: 1px solid #999595 !important;
@@ -46,7 +47,6 @@ textarea {
     padding: 8px;
     outline: none;
     margin: 10px 0;
-    width: 95%;
     font-family: 'Open Sans', sans-serif;
     border: 1px; 
 }
@@ -79,7 +79,8 @@ textarea {
 
 </style>
 <div class="row">
-  <div class="col-md-6 col-lg-6">
+  <div class="col-md-1 col-lg-1"></div>
+  <div class="col-md-5 col-lg-5">
     <div class="row  atk-row atk-form-field"><strong>Name :</strong>
       <div>{$name}</div>
     </div>
@@ -93,7 +94,7 @@ textarea {
       <div>{$contact_no}</div>
     </div>
   </div>
-  <div class="col-md-6 col-lg-6">
+  <div class="col-md-5 col-lg-5">
     <div class="row atk-form-field atk-row"><strong>Address:</strong>
       <div>{$address}</div>
     </div>
@@ -107,23 +108,29 @@ textarea {
       <div>{$country}</div>
     </div>
   </div>
+  <div class="col-md-1 col-lg-1"></div>
 </div>
 <div class="row">
-  <div class="col-md-12 col-lg-12">
+  <div class="col-md-1 col-lg-1"></div>
+  <div class="col-md-10 col-lg-10">
     <div class="row atk-form-field atk-row"><strong>Requirements:</strong>
       <div>{$requirements}</div>
     </div>
   </div>
+  <div class="col-md-1 col-lg-1"></div>
 </div>
 <div class="row">
-  <div class="col-md-12 col-lg-12">
+  <div class="col-md-1 col-lg-1"></div>
+  <div class="col-md-11 col-lg-11">
     <div class="row atk-form-field atk-row"><span></span>
       <div>{$Content}</div>
     </div>
   </div>
+  <div class="col-md-1 col-lg-1"></div>
 </div>
 <div class="row enquiry-form">
-  <div class="col-md-12 col-lg-12">
+  <div class="col-md-1 col-lg-1"></div>
+  <div class="col-md-11 col-lg-11">
     <div class="row atk-form-field atk-row">{$FormButtons}</div>
   </div>
 </div>
