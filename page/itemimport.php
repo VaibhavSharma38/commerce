@@ -24,6 +24,7 @@ class page_itemimport extends \xepan\base\Page{
 			fputcsv($file, array('sku','description','hide_in_product','hide_in_shop','category','collection','style','construction','design','color','color family','standard size','shape','material','pile height','features','hsn_code'));
 	        
 	        $item_m = $this->add('xepan\commerce\Model_Item');
+	        $item_m->setLimit(1);
 
 	        $data = [];
 	        foreach ($item_m as $item) {	

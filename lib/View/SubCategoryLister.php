@@ -15,6 +15,8 @@ class View_SubCategoryLister extends \CompleteLister{
 		parent::init();
 		
 		$xsnb_category_id = $this->app->stickyGET('xsnb_category_id');
+		$category_code = $this->app->stickyGET('category_code');
+
 		$model = $this->add('xepan\commerce\Model_Category');
 		$model->addCondition('parent_category','<>',null);
 		$model->addCondition('parent_category','<>',0);
@@ -54,6 +56,25 @@ class View_SubCategoryLister extends \CompleteLister{
 				$model->addCondition('id',$temp);
 			else
 				$model->addCondition('id',0);	
+		}elseif($category_code){
+			$cat_m = $this->add('xepan\commerce\Model_Category');
+			$cat_m->loadBy('slug_url',$category_code);
+			
+			$m = $this->add('xepan\commerce\Model_CategoryParentAssociation');
+			$m->addCondition('parent_category_id',$cat_m->id);
+						
+			$temp = [];
+			foreach ($m as $value) {
+				$temp [] = $value['category_id'];
+			}
+
+			if(!empty($temp))
+				$model->addCondition('id',$temp);
+			else
+				$model->addCondition('id',0);
+		}else{
+			$cat_m = $this->add('xepan\commerce\Model_Category');
+			$cat_m->load(-1);
 		}
 		
 

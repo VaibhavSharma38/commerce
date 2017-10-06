@@ -40,6 +40,16 @@ class Tool_IdToName extends \xepan\cms\View_Tool{
 			$this->template->trySet('category',strtoupper($category_m['name']));
 			$this->template->trySet('c_url',$this->app->url($this->options['page_name'].'&xsnb_category_id='.$category_m['id'].'&parent_category_id='.$parent_category));
 			$this->template->trySet('c_class','active-breadcrumb');
+		}elseif($category_code = $_GET['category_code']){
+			$category_m = $this->add('xepan\commerce\Model_Category');
+			$category_m->loadBy('slug_url',$category_code);
+			
+			$this->template->trySet('category',strtoupper($category_m['name']));
+			$this->template->trySet('c_url',$this->app->url($this->options['page_name'].'&xsnb_category_id='.$category_m['id'].'&parent_category_id='.$parent_category));
+			$this->template->trySet('c_class','active-breadcrumb');
+		}else{
+			$category_m = $this->add('xepan\commerce\Model_Category');
+			$category_m->load(-1);
 		}
 			
 		if($commerce_item_id = $_GET['commerce_item_id']){

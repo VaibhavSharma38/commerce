@@ -16,6 +16,15 @@ class View_CategoryHeading extends \View{
 				$this->template->trySetHTML('heading1',$model['name']);
 				$this->template->trySetHTML('description1',$model['description']);
 			}
+		}elseif($category_code = $_GET['category_code']){			
+			$model->loadBy('slug_url',$category_code);
+			
+			if($model['parent_category'] == null){				
+				$this->template->trySetHTML('heading1',$model['name']);
+				$this->template->trySetHTML('description1',$model['description']);
+			}
+		}else{
+			$model->load(-1);
 		}
 
 		$this->setModel($model);

@@ -28,6 +28,7 @@
 		$cat_j->addField('is_for_shop')->type('boolean');
 		$cat_j->addField('is_for_product')->type('boolean');
 		$cat_j->addField('is_new')->type('boolean');
+		$cat_j->addField('slug_url');
 
 		$cat_j->addField('display_sequence')->type('int')->hint('change the sequence of category, sort by decenting order')->defaultValue(0);
 		$cat_j->addField('collection_order')->type('int')->defaultValue(0);
