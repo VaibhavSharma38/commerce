@@ -123,7 +123,15 @@ class Initiator extends \Controller_Addon {
     	$array['DiscountVoucher'] = ['caption'=>'DiscountVoucher','type'=>'DropDown','model'=>'xepan\commerce\Model_DiscountVoucher'];
     }
 
-	function setup_frontend(){
+	function setup_frontend(){				
+		$url = 'www.saraswatiglobal.com'.$_SERVER['REQUEST_URI'];			
+		$redirection = $this->add('xepan\commerce\Model_Redirection');
+		$redirection->tryLoadBy('request',$url);
+		
+		if($redirection->loaded())
+			$this->app->redirect($this->app->url($redirection['target']));
+			
+
 		$this->routePages('xepan_commerce');
 			$this->addLocation(array('template'=>'templates','js'=>'templates/js','css'=>'templates/css'))
 			->setBaseURL('./vendor/xepan/commerce/');
