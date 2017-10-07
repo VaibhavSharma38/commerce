@@ -62,7 +62,9 @@ class View_SubCategoryDetailLister extends \CompleteLister{
 				else
 					$model->addCondition('id',0);	
 			}
-		}elseif($category_code){
+		}
+
+		if($category_code){
 			$cat_m = $this->add('xepan\commerce\Model_Category');
 			$cat_m->loadBy('slug_url',$category_code);
 
@@ -81,11 +83,8 @@ class View_SubCategoryDetailLister extends \CompleteLister{
 				else
 					$model->addCondition('id',0);	
 			}
-		}else{
-			$cat_m = $this->add('xepan\commerce\Model_Category');
-			$cat_m->load(-1);
 		}
-
+		
 		if($this->options['show_new']){
 			$model->addCondition('is_new',true);
 		}
