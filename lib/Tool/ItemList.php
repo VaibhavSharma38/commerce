@@ -132,6 +132,12 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 
 		if(!$this->options['show_out_of_stock']){
 			$parent_category_id = $_GET['parent_category_id'];
+			if(!$parent_category_id){
+				$c = $this->add('xepan\commerce\Model_Category');
+				$c->loadBy('slug_url',$_GET['category_code']);
+				$parent_category_id = $c->id;
+			}	
+
 			$item->addExpression('net_stock')->set(function($m,$q) use($parent_category_id){
 				$item_stock_m = $this->add('xepan\commerce\Model_ItemStock');
 				$item_stock_m->addCondition('item_id',$m->getElement('id'));
