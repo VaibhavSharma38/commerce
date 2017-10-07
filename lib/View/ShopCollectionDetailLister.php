@@ -16,17 +16,30 @@ class  View_ShopCollectionDetailLister extends \CompleteLister{
 	function init(){
 		parent::init();
     	
+    	$c = "";
 		$xsnb_category_id = $this->app->stickyGET('xsnb_category_id');
 		$category_code = $this->app->stickyGET('category_code');
 
+		if($category_code){
+			$cat = $this->add('xepan\commerce\Model_Category');
+			$cat->loadBy('slug_url',$category_code);
+			$c = $cat->id;
+		}
+
 		$model = $this->add('xepan\commerce\Model_Category');
-		$model->addExpression('has_item')->set(function($m,$q) use($xsnb_category_id){
+		$model->addExpression('has_item')->set(function($m,$q) use($xsnb_category_id,$category_code,$c){
 			$asso_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
 			$asso_m->addCondition('category_id',$m->getElement('id'));
 			$asso_stock_j = $asso_m->join('item_stock.item_id','item_id');
 			$asso_stock_j->addField('commerce_category_id','category');
 			$asso_stock_j->addField('item_stock','current_stock');
-			$asso_m->addCondition('commerce_category_id',$xsnb_category_id);
+			
+			if($xsnb_category_id)
+				$asso_m->addCondition('commerce_category_id',$xsnb_category_id);
+			
+			if($category_code)
+				$asso_m->addCondition('commerce_category_id',$c);
+						
 			$asso_m->addCondition('item_stock','>',0);
 
 			return $asso_m->count();
