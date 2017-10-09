@@ -154,12 +154,7 @@ class Initiator extends \Controller_Addon {
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_SubCategory','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_SubCategoryDetail','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_ShopCollectionDetail','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_Wishlist','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_WishlistDetail','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_RecentlyViewedItems','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_ShopCollection','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_IdToName','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_LinkRefer','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_ChatBot','Commerce');			
 		}
 
