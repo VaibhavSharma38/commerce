@@ -19,6 +19,13 @@ class View_SubCategoryDetailLister extends \CompleteLister{
 		$xsnb_category_id = $_GET['xsnb_category_id'];
 		$category_code = $_GET['category_code'];
 
+		$meta_cat_m = $this->add('xepan\commerce\Model_Category');
+		$meta_cat_m->tryLoadBy('slug_url',$category_code);
+  		
+  		$this->app->template->trySet('title',$meta_cat_m['meta_title']);
+ 		$this->app->template->trySet('meta_description',$meta_cat_m['meta_description']);
+		$this->app->template->trySet('meta_keywords',$meta_cat_m['meta_keywords']);
+
 		$model = $this->add('xepan\commerce\Model_Category');
 		$model->addCondition('parent_category','<>',null);
 		$model->addCondition('parent_category','<>',0);
