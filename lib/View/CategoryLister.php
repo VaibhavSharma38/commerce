@@ -26,7 +26,7 @@ class View_CategoryLister extends \CompleteLister{
 	}
 	
 	function formatRow(){
-
+		$this->app->stickyForget('category_code');
 		//calculating url
 		if($this->model['custom_link']){
 			// if custom link contains http or https then redirect to that website
@@ -37,8 +37,8 @@ class View_CategoryLister extends \CompleteLister{
 			else
 				$url = $this->model['custom_link'];
 			$this->current_row_html['url'] = $url;
-		}else{
-			$url = $this->app->url($this->options['url_page'],['xsnb_category_id'=>$this->model->id]);
+		}else{			
+			$url = $this->app->url('product/'.$this->model['slug_url']);
 			$this->current_row_html['url'] = $url;
 		}
 

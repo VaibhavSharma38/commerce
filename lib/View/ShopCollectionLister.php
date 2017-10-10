@@ -25,15 +25,16 @@ class View_ShopCollectionLister extends \CompleteLister{
 	}
 	
 	function formatRow(){		
+		$this->app->stickyForget('category_code');
 		if($this->model['name'] == 'Clearance'){
-			$url = $this->app->url('clearance',['xsnb_category_id'=>$this->model->id]);
+			$url = $this->app->url('shop/clearance');
 			$this->current_row_html['url'] = $url;
 		}
 		elseif ($this->model['name'] == 'Shop By Collection') {
-			$url = $this->app->url('shop-by-collection',['xsnb_category_id'=>$this->model->id]);
+			$url = $this->app->url('shop/shop-by-collection');
 			$this->current_row_html['url'] = $url;
 		}else{
-			$url = $this->app->url('exclusive',['xsnb_category_id'=>$this->model->id]);
+			$url = $this->app->url('shop/exclusive');
 			$this->current_row_html['url'] = $url;
 		}
 
