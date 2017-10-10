@@ -20,8 +20,8 @@ class  View_ShopCollectionDetailLister extends \CompleteLister{
 		$xsnb_category_id = $this->app->stickyGET('xsnb_category_id');
 		$category_code = $this->app->stickyGET('category_code');
 
+		$cat = $this->add('xepan\commerce\Model_Category');
 		if($category_code){
-			$cat = $this->add('xepan\commerce\Model_Category');
 			$cat->loadBy('slug_url',$category_code);
 			$c = $cat->id;
 		}
@@ -88,10 +88,14 @@ class  View_ShopCollectionDetailLister extends \CompleteLister{
 			$model->addCondition('is_new',true);
 		}
 
-		if($this->options['order_by']){
-			$order_by = $this->options['order_by'];
-			$model->setOrder($order_by,'asc');			
-		}
+		if($model['name'] == 'Exclusive')
+			$order_by = 'exclusive_order';
+		if($model['name'] == 'Clearance')
+			$order_by = 'clearance_order';
+		if($model['Shop By Collection'])
+			$order_by = 'collection_order';
+
+		// $model->setOrder($order_by,'asc');			
 
 		$model->addCondition('parent_category','<>',null);
 		$model->addCondition('is_for_shop',true);
