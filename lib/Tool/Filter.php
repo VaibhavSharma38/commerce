@@ -45,7 +45,7 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 		$category_m->tryLoadBy('slug_url',$category_code[1]);
 
 		$parent_category_m = $this->add('xepan\commerce\Model_Category');
-		$parent_category_m->loadBy('slug_url',$_GET['parent_category_code']);
+		$parent_category_m->tryLoadBy('slug_url',$_GET['parent_category_code']);
 
 		if($xsnb_category_id = $category_m->id){			
 			$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
