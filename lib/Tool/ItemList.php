@@ -89,6 +89,13 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 			$selected_category[] = $_GET['xsnb_category_id'];
 		}
 
+		if($category_code = $_GET['category_code']){
+			$category_code = explode('/', $category_code);
+			$cat_m = $this->add('xepan\commerce\Model_Category');
+			$cat_m->loadBy('slug_url',$category_code[1]);			
+			$selected_category[] = $cat_m->id;
+		}
+
 		if(count($selected_category)){
 			$item_join = $item->Join('category_item_association.item_id');
 			$item_join->addField('category_id');
@@ -134,7 +141,7 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 			$parent_category_id = $_GET['parent_category_id'];
 			if(!$parent_category_id){
 				$c = $this->add('xepan\commerce\Model_Category');
-				$c->loadBy('slug_url',$_GET['category_code']);
+				$c->loadBy('slug_url',$_GET['parent_category_code']);
 				$parent_category_id = $c->id;
 			}	
 
@@ -216,7 +223,7 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 				$item->addCondition($q->andExpr()
 									->where('customfield_generic_id',$specification_id)
 									->where($or)
-									)->debug();
+									);
 			}
 
 

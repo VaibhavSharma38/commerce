@@ -125,7 +125,7 @@ class  View_ShopCollectionDetailLister extends \CompleteLister{
 				$url = $this->model['custom_link'];
 			$this->current_row_html['url'] = $url;
 		}else{
-			$url = $this->app->url($this->options['url_page'],['xsnb_category_id'=>$this->model->id,'parent_category_id'=>$_GET['xsnb_category_id'],'category_code'=>$_GET['category_code']]);
+			$url = $this->app->url('shop/'.$_GET['category_code'].'/'.$this->model['slug_url']);
 			$this->current_row_html['url'] = $url;
 		}
 

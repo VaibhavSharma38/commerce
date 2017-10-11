@@ -13,11 +13,11 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 			"custom_template"=>''
 	];
 	public $header_view;
-	
+
 	function init(){
 		parent::init();
 
-		$parent_category_id = $this->app->stickyGET('parent_category_id');
+		$parent_category_id = $this->app->stickyGET('parent_category_code');
 
 		$form_layout = 'view/tool/filter/formsection';
 
@@ -31,7 +31,7 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 			}
 		}
 		
-		$this->app->stickyGET('xsnb_category_id');
+		$this->app->stickyGET('category_code');
 
 		$previous_selected_filter = json_decode($this->app->recall('filter'),true)?:[];
 		
@@ -39,11 +39,15 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 
 		$spec_array = [];
 		$avil_size_array = [];
-		
+
+		$category_code = explode('/', $_GET['category_code']);
 		$category_m = $this->add('xepan\commerce\Model_Category');
-		$category_m->tryLoadBy('id',$_GET['parent_category_id']);
-		
-		if($xsnb_category_id = $_GET['xsnb_category_id']){
+		$category_m->tryLoadBy('slug_url',$category_code[1]);
+
+		$parent_category_m = $this->add('xepan\commerce\Model_Category');
+		$parent_category_m->loadBy('slug_url',$_GET['parent_category_code']);
+
+		if($xsnb_category_id = $category_m->id){			
 			$assoc_m = $this->add('xepan\commerce\Model_CategoryItemAssociation');
 			$assoc_m->addCondition('category_id',$xsnb_category_id);
 
@@ -55,7 +59,7 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 			foreach ($item_id as $item){				
 				$item_m = $this->add('xepan\commerce\Model_Item');	
 				$item_m->tryLoad($item);
-				
+
 				if(!$item_m->loaded())
 					continue;
 
@@ -71,11 +75,12 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 					$item_stock_m = $this->add('xepan\commerce\Model_ItemStock');
 					$item_stock_m->addCondition('item_id',$item_m->id);
 
+					
 					if($item_stock_m->count()->getOne() <1)
 						continue;
 					else
-						foreach ($item_stock_m as $is) {
-							if($is['category'] == $category_m->id)
+						foreach ($item_stock_m as $is) {																					
+							if($is['category'] == $parent_category_m->id)
 								$avil_size_array[] = $is['size'];
 						}
 				}
@@ -217,8 +222,10 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 		// $form->on('click','input',$form->js()->submit());
 		$form->on('change','input',$form->js()->submit());
 
+
+		// $url = "product/".$url;
 		//specification_id_1:value1,value2|specification_id_2:value_1,value_2
-		if($form->isSubmitted()){			
+		if($form->isSubmitted()){						
 			$selected_options = [];				
 			$str = "";
 			$specification_array=[];
@@ -242,8 +249,21 @@ class Tool_Filter extends \xepan\cms\View_Tool{
 
 			$this->app->memorize('filter',json_encode($specification_array,true));
 			$this->app->memorize('price_range',$form['price']);
-
-			$form->app->redirect($this->app->url());
+			
+			if($this->options['filter_type'] == 'Product'){
+				$url = 'product/'.$_GET['category_code'];
+				$this->app->stickyForget('category_code');
+				$form->app->redirect($this->app->url($url));
+			}			
+			elseif($this->options['filter_type'] == 'Shop'){
+				$url = 'shop/'.$_GET['category_code'];
+				$this->app->stickyForget('category_code');
+				$this->app->stickyForget('parent_category_code');
+				$form->app->redirect($this->app->url($url));
+			}
+			else	{
+				$form->app->redirect($this->app->url());
+			}
 		}
 
 	}
