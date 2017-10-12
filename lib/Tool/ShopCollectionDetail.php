@@ -28,7 +28,7 @@ class Tool_ShopCollectionDetail extends \xepan\cms\View_Tool{
 
 		$lister = $this->add('xepan\commerce\View_ShopCollectionDetailLister',['options'=>$this->options]);
 		
-		$paginator = $lister->add('Paginator',['ipp'=>'15']);
-		$paginator->setRowsPerPage(15);
+		// $paginator = $lister->add('Paginator',['ipp'=>'15']);
+		// $paginator->setRowsPerPage(15);
 	}
 }
