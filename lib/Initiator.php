@@ -155,7 +155,6 @@ class Initiator extends \Controller_Addon {
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_SubCategoryDetail','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_ShopCollectionDetail','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_ShopCollection','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_ChatBot','Commerce');			
 		}
 
 		$this->app->addHook('cron_executor',function($app){

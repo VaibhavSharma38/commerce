@@ -92,7 +92,7 @@ class Tool_ItemList extends \xepan\cms\View_Tool{
 		if($category_code = $_GET['category_code']){
 			$category_code = explode('/', $category_code);
 			$cat_m = $this->add('xepan\commerce\Model_Category');
-			$cat_m->loadBy('slug_url',$category_code[1]);			
+			$cat_m->tryLoadBy('slug_url',$category_code[1]);			
 			$selected_category[] = $cat_m->id;
 		}
 

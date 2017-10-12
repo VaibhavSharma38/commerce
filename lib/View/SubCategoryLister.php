@@ -20,7 +20,7 @@ class View_SubCategoryLister extends \CompleteLister{
 
 		if($category_code){
 			$cat = $this->add('xepan\commerce\Model_Category');
-			$cat->loadBy('slug_url',$category_code);
+			$cat->tryLoadBy('slug_url',$category_code);
 			$c = $cat->id;
 		}
 
@@ -69,7 +69,7 @@ class View_SubCategoryLister extends \CompleteLister{
 
 		if($category_code){
 			$cat_m = $this->add('xepan\commerce\Model_Category');
-			$cat_m->loadBy('slug_url',$category_code);
+			$cat_m->tryLoadBy('slug_url',$category_code);
 			
 			$m = $this->add('xepan\commerce\Model_CategoryParentAssociation');
 			$m->addCondition('parent_category_id',$cat_m->id);

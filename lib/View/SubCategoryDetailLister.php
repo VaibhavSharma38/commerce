@@ -73,7 +73,7 @@ class View_SubCategoryDetailLister extends \CompleteLister{
 
 		if($category_code){
 			$cat_m = $this->add('xepan\commerce\Model_Category');
-			$cat_m->loadBy('slug_url',$category_code);
+			$cat_m->tryLoadBy('slug_url',$category_code);
 
 			if(!$cat_m['parent_category']){				
 				
