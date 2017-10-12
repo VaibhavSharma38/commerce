@@ -130,6 +130,7 @@ class Model_Item extends \xepan\hr\Model_Document{
 		
 		$item_j->addField('hide_in_product')->type('boolean');
 		$item_j->addField('hide_in_shop')->type('boolean');
+		$item_j->addField('slug_url');
 
 		$this->addCondition('type','Item');
 

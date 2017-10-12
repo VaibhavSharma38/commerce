@@ -13,6 +13,13 @@ class Tool_ItemImage extends \xepan\cms\View_Tool{
 		parent::init();
 
 		$item_id = $this->app->stickyGET('commerce_item_id');
+		
+		if(!$item_id){
+			$item_m = $this->add('xepan\commerce\Model_Item');
+			$item_m->loadBy('slug_url',$_GET['item_code']);
+			$item_id = $item_m->id;
+		}	
+
 		$this->app->stickyGET('custom_field');
 		$this->addClass('xepan-commerce-item-image');
 		$this->js('reload')->reload();
