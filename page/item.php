@@ -121,7 +121,7 @@
 			->univ()
 			->frameURL(
 					'Import CSV',
-					$this->app->url('xepan_commerce_itemimport')
+					$this->app->url('xepan_custom_itemimport')
 					);
 
 	}

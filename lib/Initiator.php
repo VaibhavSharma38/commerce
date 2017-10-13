@@ -28,7 +28,6 @@ class Initiator extends \Controller_Addon {
 			// $m->addItem(['Item Enquiry','icon'=>'fa fa-envelope'],$this->app->url('xepan_commerce_itemenquiry'));
 			// $m->addItem(['Stock & Price Importer','icon'=>'fa fa-list-ul'],$this->app->url('xepan_commerce_stockimporter'));
 			
-			$m->addItem(['Starter','icon'=>'fa fa-cog fa-spin'],'xepan_commerce_starters');
 			$m->addItem(['Category/Collection','icon'=>'fa fa-sitemap'],'xepan_commerce_category');
 			$m->addItem(['Item','icon'=>'fa fa-cart-plus'],$this->app->url('xepan_commerce_item',['status'=>'Published']));
 			$m->addItem(['Customer','icon'=>'fa fa-male'],'xepan_commerce_customer');
@@ -139,22 +138,13 @@ class Initiator extends \Controller_Addon {
 
 		if($this->app->isEditing){
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_Cart','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_Category','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_CategoryDetail','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_Designer','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_Filter','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_ItemList','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_ItemImage','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_Item_Detail','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_Checkout','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_MyAccount','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_Search','Commerce');
 			$this->app->exportFrontEndTool('xepan\commerce\Tool_FreelancerListing','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_FreelancerCategory','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_SubCategory','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_SubCategoryDetail','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_ShopCollectionDetail','Commerce');
-			$this->app->exportFrontEndTool('xepan\commerce\Tool_ShopCollection','Commerce');
+			$this->app->exportFrontEndTool('xepan\commerce\Tool_FreelancerCategory','Commerce');			
 		}
 
 		$this->app->addHook('cron_executor',function($app){
