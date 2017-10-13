@@ -27,9 +27,7 @@ class Initiator extends \Controller_Addon {
 			// $m->addItem(['Popup Card','icon'=>'fa fa-image'],'xepan_commerce_card');
 			// $m->addItem(['Item Enquiry','icon'=>'fa fa-envelope'],$this->app->url('xepan_commerce_itemenquiry'));
 			// $m->addItem(['Stock & Price Importer','icon'=>'fa fa-list-ul'],$this->app->url('xepan_commerce_stockimporter'));
-			
-			$m->addItem(['Category/Collection','icon'=>'fa fa-sitemap'],'xepan_commerce_category');
-			$m->addItem(['Item','icon'=>'fa fa-cart-plus'],$this->app->url('xepan_commerce_item',['status'=>'Published']));
+						
 			$m->addItem(['Customer','icon'=>'fa fa-male'],'xepan_commerce_customer');
 			$m->addItem(['Quotation','icon'=>'fa fa-file-text-o'],'xepan_commerce_quotation');
 			$m->addItem(['Sales Order','icon'=>'fa fa-pencil-square-o'],'xepan_commerce_salesorder');
